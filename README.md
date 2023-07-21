@@ -20,5 +20,7 @@
 
 ## Wireframe:
 
-_*(Include a simple diagram or image illustrating the basic layout and design of the JobScouts web app)*_
 
+_*(Include a simple diagram or image illustrating the basic layout and design of the JobScouts web app)*
+
+## Mohamad
