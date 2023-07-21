@@ -1,74 +1,24 @@
-# Getting Started with Create React App
+# JobScouts - Web App for Job Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Idea:
 
-## Available Scripts
+**Problem to Solve:** The JobScouts web app aims to address the common challenges faced by job seekers when searching for employment opportunities. It provides an efficient and user-friendly platform for job seekers to find suitable job openings and streamlines the job application process.
 
-In the project directory, you can run:
+**Usefulness:** JobScouts will be a valuable tool for job seekers, as it will simplify their job search process by aggregating job listings from various sources and presenting them in a clear and organized manner. The app will allow users to explore relevant job opportunities based on their location, providing them with a convenient and centralized platform to manage their job applications.
 
-### `npm start`
+## Functionality Plan:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Key Features:**
+1. **Job Search:** Users can enter keywords, location, and other filters to search for job openings across various industries and positions.
+2. **User Profiles:** Job seekers can create profiles to showcase their skills, experience, and qualifications to potential employers.
+3. **Saved Jobs:** Users can save job listings they are interested in for later review and application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 3rd Party API:
 
-### `npm test`
+**Selected API:** For data retrieval and job listings, the JobScouts web app will integrate with the [Jsearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wireframe:
 
-### `npm run build`
+_*(Include a simple diagram or image illustrating the basic layout and design of the JobScouts web app)*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# frontend-job-scouts
-
-
-# aws emad alomari  
+## Mohamad
