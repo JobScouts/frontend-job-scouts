@@ -17,6 +17,7 @@ function NavBartLogin() {
               width="110"
              height="120"
              />
+             {/* neeew */}
             <span>JobScouts</span>
           </Navbar.Brand>
           <Nav variant="underline" defaultActiveKey="/home">
