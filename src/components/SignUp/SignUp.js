@@ -1,6 +1,8 @@
-const SignUp = () => {
-    const { useState } = React;
+import { useState } from "react";
+import { Button } from "react-bootstrap";
+import "./SignUp.css";
 
+const SignUp = () => {
     const [inputs, setInputs] = useState({
         email: "",
         password: "",
@@ -94,18 +96,29 @@ const SignUp = () => {
                         </div>
 
                         <div className="right-side">
-                            <div className="register">
-                                <p>
-                                    Not a member? <a href="#">Register Now</a>
-                                </p>
-                            </div>
-
                             <div className="hello">
-                                <h2>Hello Again!</h2>
-                                <h4>Welcome back you have been missed! </h4>
+                                <h2>Welcom to our Wepsite!</h2>
                             </div>
 
                             <form onSubmit={submitForm}>
+                                <div className="input_text">
+                                    <input
+                                        type="text"
+                                        placeholder="Full Name"
+                                        name="fullName"
+                                        value={inputs.fullName}
+                                        onChange={inputEvent}
+                                    />
+                                </div>
+                                <div className="input_text">
+                                    <input
+                                        type="tel"
+                                        placeholder="Phone Number"
+                                        name="phoneNumber"
+                                        value={inputs.phoneNumber}
+                                        onChange={inputEvent}
+                                    />
+                                </div>
                                 <div className="input_text">
                                     <input
                                         className={` ${warnEmail ? "warning" : ""}`}
@@ -134,24 +147,8 @@ const SignUp = () => {
                                         className={`fa ${eye ? "fa-eye-slash" : "fa-eye"}`}
                                     ></i>
                                 </div>
-                                <div className="input_text">
-                                    <input
-                                        type="text"
-                                        placeholder="Full Name"
-                                        name="fullName"
-                                        value={inputs.fullName}
-                                        onChange={inputEvent}
-                                    />
-                                </div>
-                                <div className="input_text">
-                                    <input
-                                        type="tel"
-                                        placeholder="Phone Number"
-                                        name="phoneNumber"
-                                        value={inputs.phoneNumber}
-                                        onChange={inputEvent}
-                                    />
-                                </div>
+
+
                                 <div className="input_text">
                                     <input
                                         type={pass}
@@ -174,29 +171,14 @@ const SignUp = () => {
                                         onChange={inputEvent}
                                     />
                                 </div>
-                                <div className="recovery">
-                                    <p>Recovery Password</p>
-                                </div>
-                                <div className="btn">
-                                    <button type="submit">Sign in</button>
-                                </div>
+
+                                <Button variant="primary" size="lg" active onClick={submitForm}>
+                                    Sign Up
+                                </Button>
+
                             </form>
 
                             <hr />
-                            <div className="or">
-                                <p>or signin with</p>
-                            </div>
-                            <div className="boxes">
-                                <span>
-                                    <img src="https://imgur.com/XnY9cKl.png" alt="Option 1" />
-                                </span>
-                                <span>
-                                    <img src="https://imgur.com/ODlSChL.png" alt="Option 2" />
-                                </span>
-                                <span>
-                                    <img src="https://imgur.com/mPBRdQt.png" alt="Option 3" />
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
