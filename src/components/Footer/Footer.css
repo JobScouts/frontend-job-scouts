@@ -1,0 +1,91 @@
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  position: relative; 
+}
+.about-jobscouts {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px; 
+}
+  
+  .footer-content {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .footer p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #aaa;
+  }
+  
+  .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-links li {
+    margin-right: 10px;
+  }
+  
+  .social-links a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .facebook-icon {
+    color: #3b5998;
+  }
+  
+  .twitter-icon {
+    color: #1da1f2;
+  }
+  
+  .instagram-icon {
+    color: #e4405f;
+  }
+  
+  .linkedin-icon {
+    color: #0077b5;
+  }
+  
+  .youtube-icon {
+    color: #c4302b;
+  }
+  
+  /* Additional styles can be added for spacing, alignment, etc. */
+  

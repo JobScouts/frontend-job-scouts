@@ -1,3 +1,4 @@
+
 # JobScouts - Web App for Job Search
 
 ## Project Idea:
@@ -18,6 +19,7 @@
 **Selected API:** For data retrieval and job listings, the JobScouts web app will integrate with the [Jsearch API](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
 
 ## Wireframe:
+
 
 _*(Include a simple diagram or image illustrating the basic layout and design of the JobScouts web app)*
 
