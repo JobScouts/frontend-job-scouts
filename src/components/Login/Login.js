@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import SignUp from "../SignUp/SignUp";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
+import "./Login.css";
 
-function login () {
+const Login = () => {
 
-    
-    
     const [inputs, setinputs] = useState({
         email: "",
         password: ""
@@ -60,7 +59,7 @@ function login () {
 
                         <div className="right-side">
                             <div className="register">
-                                <p>Not a member? <link to={<SignUp />}>Register Now</link></p>
+                                <p>Not a member? <a href="/SignUp">Register Now</a></p>
                             </div>
 
                             <div className="hello">
@@ -79,7 +78,9 @@ function login () {
                                     <i onClick={Eye} className={`fa ${eye ? "fa-eye-slash" : "fa-eye"}`}></i>
                                 </div>
                                 <div className="btn">
-                                    <button type="submit">Sign in</button>
+                                    <Button variant="primary" size="lg" active>
+                                        Log In
+                                    </Button>
                                 </div>
 
                             </form>
@@ -95,6 +96,4 @@ function login () {
         </>
     );
 }
-
-
-export default login;
+export default Login;
