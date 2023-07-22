@@ -1,0 +1,41 @@
+.bg-body-tertiary {
+  background-color: #00B894;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  animation: spin 2s linear infinite;
+}
+
+.navbar-brand span {
+  font-size: 2.1rem;
+  font-weight: bolder;
+  color: #00B894;
+  margin-left: -35px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.nav-link {
+  color: #FFFFFF;
+}
+
+.nav-link:hover {
+  background-color: #FFFFFF;
+  color: #00B894;
+}
+
+.navbar .btn-outline-success {
+  border-color: #00B894;
+  color: #00B894;
+}
+
+.navbar .btn-outline-success:hover {
+  background-color: #00B894;
+  color: #FFFFFF;
+  border-color: #00B894;
+}
