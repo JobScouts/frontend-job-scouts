@@ -1,99 +1,124 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+    const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: ''
+  });
+  const [warnemail, setWarnEmail] = useState(false);
+  const [warnpass, setWarnPass] = useState(false);
+  const [eye, setEye] = useState(true);
 
-    const [inputs, setinputs] = useState({
-        email: "",
-        password: ""
-    });
-
-    const [warnemail, setwarnemail] = useState(false);
-    const [warnpass, setwarnpass] = useState(false);
-    const [danger, setdanger] = useState(true);
-
-    const [eye, seteye] = useState(true);
-    const [pass, setpass] = useState("password");
-
-
-    const inputEvent = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        if (name == "email") {
-            if (value.length > 0) {
-                setdanger(true);
-            }
-        }
-        setinputs((lastValue) => {
-            return {
-                ...lastValue,
-                [name]: value
-            }
-        });
+  const handleLogin = async () => {
+    let url = `${process.env.REACT_APP_SERVER_URL}/login`;
+    let objData = {
+      email: inputs.email,
+      password: inputs.password,
     };
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        setwarnemail(false);
-        setwarnpass(false);
-        if (inputs.email.length < 1) { setdanger(false); } if (inputs.email == "") { setwarnemail(true); } else if (inputs.password == "") { setwarnpass(true); } else { alert("Logged in Successfully"); }
-    }; const Eye = () => {
-        if (pass == "password") {
-            setpass("text");
-            seteye(false);
-        } else {
-            setpass("password");
-            seteye(true);
-        }
-    };
+    try {
+      let response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(objData),
+      });
 
-    return (
-        <>
-            <div className="container">
-                <div className="card">
-                    <div className="form">
-                        <div className="left-side">
-                            <img src="https://imgur.com/XaTWxJX.jpg" />
-                        </div>
+      if (response.status === 200) {
+        alert('Login successfully');
+        navigate("/SignUp", { replace: true });
+        // navigate("/SignUp");  // To navigate to the SignUp page 
+      } else {
+        console.log('Error:', response.statusText);
+        alert('Failed to Login');
+      }
+    } catch (error) {
+      console.log('Error:', error.message);
+      alert('Failed to Login');
+    }
+  };
 
-                        <div className="right-side">
-                            <div className="register">
-                                <p>Not a member? <a href="/SignUp">Register Now</a></p>
-                            </div>
+  const inputEvent = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    if (e.target.name === 'email') {
+      setWarnEmail(false);
+    } else if (e.target.name === 'password') {
+      setWarnPass(false);
+    }
+  };
 
-                            <div className="hello">
-                                <h2>Hello Again!</h2>
-                                <h4>Welcome back you have been missed! </h4>
-                            </div>
+  const submitForm = (e) => {
+    e.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(inputs.email)) {
+      setWarnEmail(true);
+    } else if (inputs.password === '') {
+      setWarnPass(true);
+    } else {
+      handleLogin();
+    }
+  };
 
-                            <form onSubmit={submitForm}>
+  const Eye = () => {
+    setEye(!eye);
+  };
 
-                                <div className="input_text">
-                                    <input className={` ${warnemail ? "warning" : ""}`} type="text" placeholder="Enter Email" name="email" value={inputs.email} onChange={inputEvent} />
-                                    <p className={` ${danger ? "danger" : ""}`}><i className="fa fa-warning"></i>Please enter a valid email address.</p>
-                                </div>
-                                <div className="input_text">
-                                    <input className={` ${warnpass ? "warning" : ""}`} type={pass} placeholder="Enter Password" name="password" value={inputs.password} onChange={inputEvent} />
-                                    <i onClick={Eye} className={`fa ${eye ? "fa-eye-slash" : "fa-eye"}`}></i>
-                                </div>
-                                <div className="btn">
-                                    <Button variant="primary" size="lg" active>
-                                        Log In
-                                    </Button>
-                                </div>
+  return (
+    <div className="container">
+      <div className="card">
+        <div className="form">
+          <div className="left-side">
+            <img src="https://imgur.com/XaTWxJX.jpg" alt="MyImg" />
+          </div>
 
-                            </form>
-
-                            <hr />
-                        </div>
-                    </div>
-                </div>
+          <div className="right-side">
+            <div className="register">
+              <p>Not a member? <a href="/SignUp">Register Now</a></p>
             </div>
 
+            <div className="hello">
+              <h2>Hello Again!</h2>
+              <h4>Welcome back you have been missed! </h4>
+            </div>
 
+            <form onSubmit={submitForm}>
+              <div className="input_text">
+                <input
+                  className={`${warnemail ? 'warning' : ''}`}
+                  type="text"
+                  placeholder="Enter Email"
+                  name="email"
+                  value={inputs.email}
+                  onChange={inputEvent}
+                />
+                {warnemail && <p className="warning"><i className="fa fa-warning"></i>Please enter a valid email address.</p>}
+              </div>
+              <div className="input_text">
+                <input
+                  className={`${warnpass ? 'warning' : ''}`}
+                  type={eye ? 'password' : 'text'}
+                  placeholder="Enter Password"
+                  name="password"
+                  value={inputs.password}
+                  onChange={inputEvent}
+                />
+                <i onClick={Eye} className={`fa ${eye ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+              </div>
+              <div className="btn">
+                <Button variant="primary" size="lg" active type="submit">
+                  Log In
+                </Button>
+              </div>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-        </>
-    );
-}
 export default Login;
