@@ -30,7 +30,7 @@
     display: flex
 }
 
-.container .card .left-side {
+.container .card .right-side {
     width: 50%;
     background-color: #000;
     height: 100% !important;
@@ -39,13 +39,13 @@
     overflow: hidden
 }
 
-.left-side img {
+.right-side img {
     height: 100%;
     width: 100%;
     object-fit: cover
 }
 
-.container .card .right-side {
+.container .card .lift-side {
     width: 50%;
     background-color: #efecf2;
     height: 100%;
