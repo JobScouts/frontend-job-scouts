@@ -2,12 +2,11 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import company from "../Assest/company.jpg";
-
-import Modal from 'react-bootstrap/Modal';
 import "./CustomCard.css";
 import { useState } from "react";
 import Details from "../Details/Details";
 const CustomCard = () => {
+  
     const [showModal, setShowModal] = useState(false);
     const handleShowModal = () => {
       setShowModal(true);

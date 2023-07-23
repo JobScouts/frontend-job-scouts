@@ -1,5 +1,4 @@
 import React from "react";
-import NavBartLogin from "../NavBarLogin/NavBarLogin";
 import Footer from "../Footer/Footer";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import search from "../Assest/search.jpg";
@@ -18,7 +17,6 @@ function Home() {
   };
   return (
     <div>
-      {/* <NavBartLogin /> */}
       <Container>
         <h1 className="main-heading text-on-top">
           Discover Your Perfect Job Opportunity :

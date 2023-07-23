@@ -14,10 +14,9 @@
 .navbar-brand span {
   font-size: 2.1rem;
   font-weight: bolder;
-  color: #ffffff;
+  color: #104931;
   margin-left: -35px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .nav-link {
@@ -25,8 +24,8 @@
 }
 
 .nav-link:hover {
-  background-color: #FFFFFF;
-  color: #00B894;
+  background-color: #FFD700; /* Change the background color to a different color */
+  color: #ffffff !important;
 }
 
 .navbar .btn-outline-success {
@@ -39,3 +38,12 @@
   color: #FFFFFF;
   border-color: #00B894;
 }
+.navbar .d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .d-flex.align-items-center .nav-link {
+  margin-right: 15px;
+}
+
