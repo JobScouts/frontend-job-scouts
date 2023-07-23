@@ -7,9 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 import "./CustomCard.css";
 import { useState } from "react";
 import Details from "../Details/Details";
-
-import "./Card.css";
-
 const CustomCard = () => {
     const [showModal, setShowModal] = useState(false);
     const handleShowModal = () => {
@@ -33,15 +30,14 @@ const CustomCard = () => {
               </span>
             </div>
           </Card.Text>
-
           <div className="button-container">
             <Button variant="primary" className="custom-button btn" onClick={handleShowModal}>More Details</Button>
             <Button variant="primary" className="btn">Save</Button>
           </div>
         </Card.Body>
       </Card>
-
       {showModal && (<Details/>)}
+
 
     </div>
   );

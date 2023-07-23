@@ -7,7 +7,6 @@ import Interview from "../Assest/interview.jpg";
 import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
-
 import CustomCard from '../CustomCard/CustomCard'
 import "./Home.css";
 
