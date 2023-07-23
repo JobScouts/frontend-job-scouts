@@ -29,12 +29,12 @@ function NavBarNotLog() {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="link-1">
-                <Button variant="outline-success" className="btn-outline-success">LogIn</Button> 
+                <Button variant="success" className="btn-outline-success">LogIn</Button> 
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="link-1">
-                <Button variant="outline-success" className="btn-outline-success">SignUp</Button> 
+                <Button variant="success" className="btn-outline-success">SignUp</Button> 
               </Nav.Link>
             </Nav.Item>
           </Nav>

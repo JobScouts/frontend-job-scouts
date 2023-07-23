@@ -1,6 +1,7 @@
+// About.js
+
 import React from 'react';
 import './About.css';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Footer from '../Footer/Footer';
 import NavBarNotLog from '../NavBarNotLog/NavBarNotLog';
@@ -33,7 +34,7 @@ const About = () => {
         
         <div className="card-container">
           <Card className="card">
-            <Card.Img variant="top" src={MhmdS} />
+            <Card.Img variant="top" src={MhmdS} className='imgc'/>
             <Card.Body>
               <Card.Title>Mohamad Samara</Card.Title>
               <Card.Text>
@@ -43,7 +44,7 @@ const About = () => {
           </Card>
 
           <Card className="card">
-            <Card.Img variant="top" src={Aws} />
+            <Card.Img variant="top" src={Aws} className='imgc' />
             <Card.Body>
               <Card.Title>Aws Alomari</Card.Title>
               <Card.Text>
@@ -53,7 +54,7 @@ const About = () => {
           </Card>
 
           <Card className="card">
-            <Card.Img variant="top" src={Farah} />
+            <Card.Img variant="top" src={Farah} className='imgc'/>
             <Card.Body>
               <Card.Title>Farah Elaydi</Card.Title>
               <Card.Text>
@@ -63,7 +64,7 @@ const About = () => {
           </Card>
 
           <Card className="card">
-            <Card.Img variant="top" src={Mhamd} />
+            <Card.Img variant="top" src={Mhamd} className='imgc'/>
             <Card.Body>
               <Card.Title>Mohammad Mustafa</Card.Title>
               <Card.Text>
@@ -73,7 +74,7 @@ const About = () => {
           </Card>
 
           <Card className="card">
-            <Card.Img variant="top" src={saif} />
+            <Card.Img variant="top" src={saif} className='imgc'/>
             <Card.Body>
               <Card.Title>Saif Yahia</Card.Title>
               <Card.Text>

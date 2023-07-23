@@ -8,7 +8,7 @@ import Interview from "../Assest/interview.jpg";
 import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
-import Card from '../Card/Card'
+import CustomCard from '../Card/CustomCard'
 import "./Home.css";
 
 function Home() {
@@ -51,7 +51,7 @@ function Home() {
           </Col>
         </Row>
 
-        {showCard && (<Card/>)}
+        {showCard && (<CustomCard/>)}
       </Container>
 
       <div className="additional-container">

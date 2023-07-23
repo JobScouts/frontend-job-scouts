@@ -30,7 +30,6 @@ const Login = () => {
       if (response.status === 200) {
         alert('Login successfully');
         navigate("/SignUp", { replace: true });
-        // navigate("/SignUp");  // To navigate to the SignUp page 
       } else {
         console.log('Error:', response.statusText);
         alert('Failed to Login');

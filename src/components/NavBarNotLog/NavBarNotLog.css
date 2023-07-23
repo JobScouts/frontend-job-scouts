@@ -14,14 +14,14 @@
 .navbar-brand span {
   font-size: 2.1rem;
   font-weight: bolder;
-  color: #00B894;
+  color: #ffffff;
   margin-left: -35px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 
 .nav-link {
-  color: #FFFFFF;
+  color: #1a1919 !important;
 }
 
 .nav-link:hover {
@@ -31,7 +31,7 @@
 
 .navbar .btn-outline-success {
   border-color: #00B894;
-  color: #00B894;
+  color: #ffffff !important;
 }
 
 .navbar .btn-outline-success:hover {
