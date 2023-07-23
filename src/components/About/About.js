@@ -3,7 +3,7 @@ import './About.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Footer from '../Footer/Footer';
-import NavBarNotLog from '../NavBarNotLog/NavBarNotLog';
+// import NavBarNotLog from '../NavBarNotLog/NavBarNotLog';
 import Aws from '../Assest/aws.JPG';
 import Mhamd from '../Assest/mhamad.jpg';
 import Farah from '../Assest/fara.jpg'
@@ -13,7 +13,7 @@ import saif from '../Assest/saif.jpeg'
 const About = () => {
   return (
     <div>
-      <NavBarNotLog />
+      {/* <NavBarNotLog /> */}
       <br></br>
       <div className="about-jobscouts">
         <h2>Welcome to JobScouts</h2>

@@ -1,5 +1,4 @@
 import React from "react";
-import NavBarNotLog from "../NavBarNotLog/NavBarNotLog";
 import NavBartLogin from "../NavBarLogin/NavBarLogin";
 import Footer from "../Footer/Footer";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
@@ -8,7 +7,7 @@ import Interview from "../Assest/interview.jpg";
 import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
-import Card from '../Card/Card'
+import CustomCard from '../CustomCard/CustomCard'
 import "./Home.css";
 
 function Home() {
@@ -19,7 +18,7 @@ function Home() {
   };
   return (
     <div>
-      <NavBartLogin />
+      {/* <NavBartLogin /> */}
       <Container>
         <h1 className="main-heading text-on-top">
           Discover Your Perfect Job Opportunity :
@@ -51,7 +50,7 @@ function Home() {
           </Col>
         </Row>
 
-        {showCard && (<Card/>)}
+        {showCard && (<CustomCard/>)}
       </Container>
 
       <div className="additional-container">
