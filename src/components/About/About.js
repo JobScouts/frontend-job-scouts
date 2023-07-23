@@ -1,7 +1,6 @@
 import React from 'react';
 import './About.css';
 import Card from 'react-bootstrap/Card';
-import Footer from '../Footer/Footer';
 import Aws from '../Assest/aws.JPG';
 import Mhamd from '../Assest/mhamad.jpg';
 import Farah from '../Assest/fara.jpg'
@@ -80,7 +79,6 @@ const About = () => {
           </Card>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
