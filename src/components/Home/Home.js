@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../Footer/Footer";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import search from "../Assest/search.jpg";
 import Interview from "../Assest/interview.jpg";
@@ -119,7 +118,6 @@ function Home() {
         </span>
       </div>
 
-      <Footer />
     </div>
   );
 }
