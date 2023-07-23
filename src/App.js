@@ -26,8 +26,6 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path='/ProfTese' element={<ProfTese />} />
         <Route path='/SavedJob' element={<SavedJob/>}/>
-        {/* <Route path='/Login' element={<Login />}/> */}
-        {/* <Route path='/SignUp' element={<SignUp/>}/> */}
       </Routes>
 
 

@@ -38,6 +38,7 @@ function NavBarNotLog() {
             {!isAuthenticated && (
               <Nav.Item>
               <Nav.Link eventKey="link-1">
+
                 <Button variant="outline-success" className="btn-outline-success" onClick={() => { loginWithRedirect() }}>LogIn</Button>
               </Nav.Link>
             </Nav.Item>
