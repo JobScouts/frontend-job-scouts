@@ -14,30 +14,30 @@
   .navbar-brand span {
     font-size: 2.1rem;
     font-weight: bolder;
-    color: #00B894;
+    color: #006c67;
     margin-left: -35px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
   }
   
   .nav-link {
-    color: #00B894;
+    color: #006c67;
   }
   
   .nav-link:hover {
-    background-color: #00B894;
+    background-color: #006c67;
     border-radius: 10%;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #ffffff; /* Change the text color to white */
   }
   
   .navbar .btn-outline-success {
-    border-color: #00B894;
-    color: #00B894;
+    border-color: #006c67;
+    color: #006c67;
   }
   
   .navbar .btn-outline-success:hover {
-    background-color: #00B894;
+    background-color: #006c67;
     color: #FFFFFF;
-    border-color: #00B894;
+    border-color: #006c67;
   }

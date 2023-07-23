@@ -28,7 +28,7 @@ function NavBartLogin() {
               <Nav.Link href='/About' className="nav-link">AboutUs</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/" className="nav-link">My Job</Nav.Link>
+              <Nav.Link href="/SavedJob" className="nav-link">My Job</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/" className="nav-link">Profile</Nav.Link>
