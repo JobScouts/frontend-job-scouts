@@ -2,16 +2,19 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import company from "../Assest/company.jpg";
+
 import Modal from 'react-bootstrap/Modal';
 import "./CustomCard.css";
 import { useState } from "react";
 import Details from "../Details/Details";
 
+import "./Card.css";
+
 const CustomCard = () => {
-  const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
+    const [showModal, setShowModal] = useState(false);
+    const handleShowModal = () => {
+      setShowModal(true);
+    };
 
   return (
     <div className="main">
@@ -30,6 +33,7 @@ const CustomCard = () => {
               </span>
             </div>
           </Card.Text>
+
           <div className="button-container">
             <Button variant="primary" className="custom-button btn" onClick={handleShowModal}>More Details</Button>
             <Button variant="primary" className="btn">Save</Button>
@@ -38,6 +42,7 @@ const CustomCard = () => {
       </Card>
 
       {showModal && (<Details/>)}
+
     </div>
   );
 };
