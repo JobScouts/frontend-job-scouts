@@ -36,6 +36,7 @@
   .logo {
     width: 100px;
     height: 180px;
+    object-fit: cover !important;
   }
   
   .btn {
