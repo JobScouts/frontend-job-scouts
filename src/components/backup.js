@@ -8,26 +8,38 @@ import { useState } from "react";
 import CustomCard from '../CustomCard/CustomCard'
 import "./Home.css";
 
-function Home() {
+function Home(props) {
   const [showCard, setShowCard] = useState(false);
+
+  // const handleShowCard = () => {
+  //   setShowCard(true);
+  // };
+
   const [jobTitle, setJobTitle] = useState('');
   const [location, setLocation] = useState('');
-  const [data, setData] = useState([]);
+
   const handleShowCards = () => {
+    // Here you can access the 'jobTitle' and 'location' values.
     console.log('Job Title:', jobTitle);
     console.log('Location:', location);
     setShowCard(true);
+    // You can perform any further actions you need with the input values here.
     getِAllJobs();
   };
-  
+
+  const [data, setData] = useState([]);
 
   async function getِAllJobs() {
     const url = process.env.REACT_APP_SERVER_URL
     const response = await fetch(`${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`);
     const allJobs = await response.json();
-    console.log(allJobs);
     setData(allJobs);
-    console.log(data)
+    console.log(allJobs);
+    //     const newTrendingMovies = trendingMovies.map((item) => (
+    //         {
+    //          ...item, comment: "static comment"
+    //          }))
+    //     setData(newTrendingMovies);
     }
     useEffect(() => {
       getِAllJobs();
@@ -73,7 +85,7 @@ function Home() {
             </Col>
           </Row>
 
-          {showCard && (<CustomCard data={data}/>)}
+          {showCard && (<CustomCard data={props.data}/>)};
         </Container>
 
         <div className="additional-container">
@@ -92,7 +104,7 @@ function Home() {
             <a
               href="https://www.roberthalf.com.au/career-advice/interview"
               target="_blank"
-              style={{ textDecoration: "none" }} rel="noreferrer"
+              style={{ textDecoration: "none" }}
             >
               <Button variant="success" className="additional-search-button">
                 Ready to Shine
@@ -113,7 +125,7 @@ function Home() {
             <a
               href="https://zety.com/blog/how-to-write-a-cv"
               target="_blank"
-              style={{ textDecoration: "none" }} rel="noreferrer"
+              style={{ textDecoration: "none" }}
             >
               <Button variant="success" className="second-search-button">
                 Preparing for the Big Day
@@ -135,7 +147,7 @@ function Home() {
             <a
               href="https://www.roberthalf.com.au/career-advice/interview"
               target="_blank"
-              style={{ textDecoration: "none" }} rel="noreferrer"
+              style={{ textDecoration: "none" }}
             >
               <Button variant="success" className="additional-search-button">
                 19 Winning Steps

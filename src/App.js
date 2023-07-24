@@ -5,7 +5,6 @@ import SavedJob from './components/SavedJob/SavedJob';
 import Footer from './components/Footer/Footer'
 import ProfTese from './components/profTese';
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
-import Profile from './components/Profile/Profile';
 
 function App() {
   return (
@@ -16,8 +15,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='/About' element={<About />} />
         <Route path='/ProfTese' element={<ProfTese />} />
-        <Route path='/SavedJob' element={<SavedJob />} />
-        <Route path='/Profile' element={<Profile />} />
+        <Route path='/SavedJob' element={<SavedJob/>}/>
+        <Route path='/UserProfile' element={<UserProfile/>}/>
+
       </Routes>
       <Footer />
     </div>

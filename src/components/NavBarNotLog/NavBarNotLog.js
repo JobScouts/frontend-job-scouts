@@ -33,10 +33,19 @@ function NavBarNotLog() {
             {isAuthenticated && (
               <Nav.Item>
                 <Nav.Link href="/SavedJob" className="nav-link">
-                My Jobs
+                  My Jobs
                 </Nav.Link>
               </Nav.Item>
             )}
+
+            {isAuthenticated && (
+              <Nav.Item>
+                <Nav.Link href="/UserProfile" className="nav-link">
+                  Profile
+                </Nav.Link>
+              </Nav.Item>
+            )}
+
             {!isAuthenticated ? (
               <Nav.Item>
                 <Nav.Link eventKey="link-1">
