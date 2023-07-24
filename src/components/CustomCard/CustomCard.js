@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import company from "../Assest/company.jpg";
 import "./CustomCard.css";
-import { useState } from "react";
 import Details from "../Details/Details";
 import { useAuth0 } from '@auth0/auth0-react';
 // import { Alert } from "react-bootstrap";
+import Company from '../Assest/company.jpg'
 
-const CustomCard = () => {
-  const { user, isAuthenticated} = useAuth0();
-  // const [show, setShow] = useState(true);
+const CustomCard = (props) => {
+const { user, isAuthenticated} = useAuth0();
+// const [show, setShow] = useState(true);
+let data =props.data;
 
   const [showModal, setShowModal] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
 
-  const handleShowModal = () => {
+  const handleShowModal = (job) => {
+    console.log("joab var"+job);
+    setSelectedJob(job);
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
+    setSelectedJob(null);
     setShowModal(false);
   };
 
@@ -56,29 +60,47 @@ const CustomCard = () => {
 
   return (
     <div className="main">
-      <Card style={{ width: "18rem" }} >
-        <Card.Img variant="top" src={company} alt="employer_logo" className="logo"/>
-        <Card.Body>
-          <Card.Title className="title">employer_name</Card.Title>
-          <Card.Text>
-            <div className="location">
-              <p>job_city</p> <p>,</p> <p>job_country</p>
-            </div>
-            <div className="job">
-              <p>job_title</p>
-              <span>
-                <b>job_min_salary</b> <b>job_max_salary</b>
-                {/* <h2>{user.sub}</h2> */}
-              </span>
-            </div>
-          </Card.Text>
-          <div className="button-container">
-            <Button variant="primary" className="custom-button btn" onClick={handleShowModal}>More Details</Button>
-            <Button variant="primary" className="btn"  onClick={handleSaveJob}>Save</Button>
-          </div>
-        </Card.Body>
-      </Card>
-      {showModal && <Details handleCloseModal={handleCloseModal} />}
+      {data.map((obj, i) => (
+        <div key={i}>
+          <Card style={{ width: "20rem" }} className="card">
+            <Card.Img
+              variant="top"
+              src={obj.employer_logo === "" ? Company : obj.employer_logo}
+              alt="employer_logo"
+              className="logo"
+            />
+            <Card.Body>
+              <Card.Title className="title">{obj.employer_name}</Card.Title>
+              <Card.Text>
+                <div className="location">
+                  <p>{obj.job_city}</p> <p>,</p> <p>{obj.job_country}</p>
+                </div>
+                <div className="job">
+                  <p>{obj.job_title}</p>
+                </div>
+              </Card.Text>
+              <div className="button-container">
+                <Button
+                  variant="primary"
+                  className="custom-button btn"
+                  onClick={() => handleShowModal(obj)}
+                >
+                  More Details
+                </Button>
+                <Button 
+                variant="primary" 
+                className="btn"
+                onClick={handleSaveJob}>
+                  Save
+                </Button>
+              </div>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
+      {showModal && (
+       <Details job={selectedJob} handleCloseModal={handleCloseModal} />
+      )}
     </div>
   );
 };
