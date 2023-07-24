@@ -26,9 +26,9 @@ const UserProfile = () => {
     // Replace this with your backend API call to get user profile data
     // For simplicity, I'm returning dummy data here
     return {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      phoneNumber: '123-456-7890',
+      name: 'Aws Alomari',
+      email: 'aws@example.com',
+      phoneNumber: '0792908328',
       about: '',
     };
   };
