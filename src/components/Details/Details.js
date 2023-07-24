@@ -1,19 +1,13 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Company from'../Assest/company.jpg'
 
-const Details = () => {
-  const [show, setShow] = useState(true);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+const Details = ({handleCloseModal}) => {
   return (
     <div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={true} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>employer_name</Modal.Title>
         </Modal.Header>
@@ -26,11 +20,11 @@ const Details = () => {
           <p>Job Salary: job_min_salary - job_max_salary</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Button variant="secondary" onClick={handleCloseModal}>
             Close
           </Button>
           <Link to="https://chat.openai.com/?model=text-davinci-002-render-sha" target="_blank">
-            <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleCloseModal}>
               Apply To Job
             </Button>
           </Link>
@@ -39,5 +33,4 @@ const Details = () => {
     </div>
   );
 };
-
 export default Details;
