@@ -9,7 +9,7 @@ import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 function App() {
   return (
     <div className="App">
-      <ProfTese />
+      {/* <ProfTese /> */}
       <NavBarNotLog />
       <Routes>
         <Route path="/" element={<Home />} />
