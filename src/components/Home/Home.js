@@ -92,7 +92,7 @@ function Home() {
             <a
               href="https://www.roberthalf.com.au/career-advice/interview"
               target="_blank"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none" }} rel="noreferrer"
             >
               <Button variant="success" className="additional-search-button">
                 Ready to Shine
@@ -113,7 +113,7 @@ function Home() {
             <a
               href="https://zety.com/blog/how-to-write-a-cv"
               target="_blank"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none" }} rel="noreferrer"
             >
               <Button variant="success" className="second-search-button">
                 Preparing for the Big Day
@@ -135,7 +135,7 @@ function Home() {
             <a
               href="https://www.roberthalf.com.au/career-advice/interview"
               target="_blank"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none" }} rel="noreferrer"
             >
               <Button variant="success" className="additional-search-button">
                 19 Winning Steps

@@ -3,9 +3,13 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./CustomCard.css";
 import Details from "../Details/Details";
+import { useAuth0 } from '@auth0/auth0-react';
+// import { Alert } from "react-bootstrap";
 import Company from '../Assest/company.jpg'
 
 const CustomCard = (props) => {
+const { user, isAuthenticated} = useAuth0();
+// const [show, setShow] = useState(true);
 let data =props.data;
 
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +25,38 @@ let data =props.data;
     setSelectedJob(null);
     setShowModal(false);
   };
+
+   async function handleSaveJob() {
+      let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
+    // Replace the following data with the actual job data you want to save
+    const jobData = {
+      job_title: "mohamad",
+      employer_name: "samara",
+      employer_logo: "logo",
+      employer_website: "web",
+      job_highlights: "Hello5",
+      job_apply_link: "Hello6",
+      sub: user.sub
+    };
+        // Make an HTTP POST request using fetch
+        try {
+          let response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(jobData),
+          });
+      
+          if (response.status === 201) {
+            alert('Added successfully');
+          } else {
+            console.log('Error:', response.statusText);
+            alert('Failed to add movie');
+          }
+        } catch (error) {
+          console.log('Error:', error.message);
+          alert('Failed to add movie');
+        }
+      }  
 
   return (
     <div className="main">
@@ -51,7 +87,10 @@ let data =props.data;
                 >
                   More Details
                 </Button>
-                <Button variant="primary" className="btn">
+                <Button 
+                variant="primary" 
+                className="btn"
+                onClick={handleSaveJob}>
                   Save
                 </Button>
               </div>
@@ -59,8 +98,6 @@ let data =props.data;
           </Card>
         </div>
       ))}
-
-
       {showModal && (
        <Details job={selectedJob} handleCloseModal={handleCloseModal} />
       )}
