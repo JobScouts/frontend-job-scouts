@@ -7,10 +7,15 @@ import { useState } from "react";
 import Details from "../Details/Details";
 const CustomCard = () => {
   
-    const [showModal, setShowModal] = useState(false);
-    const handleShowModal = () => {
-      setShowModal(true);
-    };
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="main">
@@ -35,7 +40,7 @@ const CustomCard = () => {
           </div>
         </Card.Body>
       </Card>
-      {showModal && (<Details/>)}
+      {showModal && <Details handleCloseModal={handleCloseModal} />}
 
 
     </div>
