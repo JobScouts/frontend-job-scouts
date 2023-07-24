@@ -58,7 +58,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile-container">
+    <section className="user-profile-container">
       <div className="user-details">
         <img
           className="user-profile-picture"
@@ -80,7 +80,7 @@ const UserProfile = () => {
           Update About
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
