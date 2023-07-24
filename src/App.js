@@ -5,7 +5,7 @@ import SavedJob from './components/SavedJob/SavedJob';
 import Footer from './components/Footer/Footer'
 import ProfTese from './components/profTese';
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
-
+import UserProfile from './components/Profile/Profile';
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path='/ProfTese' element={<ProfTese />} />
         <Route path='/SavedJob' element={<SavedJob/>}/>
+        <Route path='/UserProfile' element={<UserProfile/>}/>
       </Routes>
       <Footer/>
     </div>
