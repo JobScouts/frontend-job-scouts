@@ -12,7 +12,7 @@ const Details = ({ job, handleCloseModal }) => {
     setShowQualifications(!showQualifications);
   };
   const handleDescription = () => {
-    setShowDescription(!showDescription);
+    setShowDescription(!showDescription);}
     const Details = ({ job, handleCloseModal }) => {
   const handleApplyToJob = (applyLink) => {
     window.open(applyLink, '_blank');
