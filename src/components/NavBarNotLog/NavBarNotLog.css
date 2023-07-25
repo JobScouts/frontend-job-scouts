@@ -1,3 +1,8 @@
+.logo
+{
+  width: 110px !important;
+  height: auto;
+}
 .bg-body-tertiary {
   background-color: #00B894;
 }
@@ -14,7 +19,7 @@
 .navbar-brand span {
   font-size: 2.1rem;
   font-weight: bolder;
-  color: #104931;
+  color: #01a561;
   margin-left: -35px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -24,8 +29,10 @@
 }
 
 .nav-link:hover {
-  background-color: #FFD700;
+  background-color: #006c67;
   color: #ffffff !important;
+  font-weight: bold;
+  border-radius: 5%;
 }
 
 .navbar .btn-outline-success {
@@ -44,12 +51,12 @@
 }
 
 .navbar .d-flex.align-items-center .nav-link {
-  margin-right: 15px;
+  margin-right: -10px;
 }
 
 
 .navbar img {
-  margin-left:40px;
+  margin-left:10px;
   width: 50px;
   height: 50px;
   max-width: 100%;
