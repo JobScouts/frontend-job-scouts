@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import "./CustomCard.css";
 import Details from "../Details/Details";
 import { useAuth0 } from '@auth0/auth0-react';
-// import { Alert } from "react-bootstrap";
 import Company from '../Assest/company.jpg'
 
 const CustomCard = (props) => {

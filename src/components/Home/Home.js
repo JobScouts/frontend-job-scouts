@@ -22,21 +22,15 @@ function Home() {
     getِAllJobs();
   };
   
-
   async function getِAllJobs() {
     const url = process.env.REACT_APP_SERVER_URL
     const response = await fetch(`${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`);
     const allJobs = await response.json();
-    // console.log(allJobs);
     setData(allJobs);
-    // console.log(data)
     }
     useEffect(() => {
       getِAllJobs();
     }, []);
-
-
-
 
     return (
       <div>
@@ -145,7 +139,6 @@ function Home() {
             </a>
           </span>
         </div>
-
       </div>
     );
   }
