@@ -20,6 +20,7 @@ function Home() {
     console.log('Location:', location);
     setShowCard(true);
     getِAllJobs();
+    console.log(data);
   };
   
   async function getِAllJobs() {
