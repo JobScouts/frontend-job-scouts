@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 import "./CustomCard.css";
 import Details from "../Details/Details";
 import { useAuth0 } from '@auth0/auth0-react';
 import Company from '../Assest/company.jpg'
-
 const CustomCard = (props) => {
   let data = props.data;
   const { user, isAuthenticated } = useAuth0();
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
-
   const handleShowModal = (job) => {
     setSelectedJob(job);
     setShowModal(true);
   };
-
   const handleCloseModal = () => {
     setSelectedJob(null);
     setShowModal(false);
   };
-
   async function handleSaveJob(obj) {
     if (isAuthenticated) {
       let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
@@ -103,6 +100,7 @@ const CustomCard = (props) => {
       {showModal && (
         <Details job={selectedJob} handleCloseModal={handleCloseModal} />
       )}
+      {showModal && <Details job={selectedJob} handleCloseModal={handleCloseModal} />}
     </div>
   );
 };
