@@ -8,15 +8,12 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Company from '../Assest/company.jpg'
 
 const CustomCard = (props) => {
-const { user, isAuthenticated} = useAuth0();
-// const [show, setShow] = useState(true);
-let data =props.data;
-
+  let data = props.data;
+  const { user, isAuthenticated } = useAuth0();
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
 
   const handleShowModal = (job) => {
-    console.log("joab var"+job);
     setSelectedJob(job);
     setShowModal(true);
   };
@@ -26,37 +23,42 @@ let data =props.data;
     setShowModal(false);
   };
 
-   async function handleSaveJob() {
+  async function handleSaveJob(obj) {
+    if (isAuthenticated) {
       let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
-    // Replace the following data with the actual job data you want to save
-    const jobData = {
-      job_title: "mohamad",
-      employer_name: "samara",
-      employer_logo: "logo",
-      employer_website: "web",
-      job_highlights: "Hello5",
-      job_apply_link: "Hello6",
-      sub: user.sub
-    };
-        // Make an HTTP POST request using fetch
-        try {
-          let response = await fetch(url, {
+      const jobData = {
+        job_title: obj.job_title,
+        employer_name: obj.employer_name,
+        employer_logo: obj.employer_logo,
+        employer_website: obj.employer_website,
+        job_highlights: obj.job_highlights,
+        job_apply_link: obj.job_apply_link,
+        sub: user.sub
+      };
+      try {
+            let response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(jobData),
-          });
-      
-          if (response.status === 201) {
+            });
+
+            if (response.status === 201) {
             alert('Added successfully');
-          } else {
-            console.log('Error:', response.statusText);
-            alert('Failed to add movie');
-          }
-        } catch (error) {
-          console.log('Error:', error.message);
-          alert('Failed to add movie');
-        }
-      }  
+            } else {
+                console.log('Error : ', response.statusText);
+                alert('Failed to add Job');
+              }
+
+      }catch (error) {
+        console.log('Error:', error.message);
+        alert('Failed to add Job');
+      }
+    }
+
+    else {
+      alert("You have to Login to Add jobs in your profile");
+    }
+  }
 
   return (
     <div className="main">
@@ -87,10 +89,11 @@ let data =props.data;
                 >
                   More Details
                 </Button>
-                <Button 
-                variant="primary" 
-                className="btn"
-                onClick={handleSaveJob}>
+                <Button
+                  variant="primary"
+                  className="btn"
+                  onClick={() => handleSaveJob(obj)} // Pass the job object to handleSaveJob
+                >
                   Save
                 </Button>
               </div>
@@ -99,10 +102,9 @@ let data =props.data;
         </div>
       ))}
       {showModal && (
-       <Details job={selectedJob} handleCloseModal={handleCloseModal} />
+        <Details job={selectedJob} handleCloseModal={handleCloseModal} />
       )}
     </div>
   );
 };
-
 export default CustomCard;

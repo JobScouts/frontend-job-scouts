@@ -3,13 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import company from '../Assest/company.jpg';
 import './SavedCard.css';
-// import Details from "../Details/Details";
 import { useAuth0 } from '@auth0/auth0-react';
 
 const SavedCard = () => {
-  
   const { user, isAuthenticated } = useAuth0();
   const [savedJob, setSavedJob] = useState([]);
+
 
   async function handleSavedJobs() {
     const url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
@@ -18,14 +17,37 @@ const SavedCard = () => {
     setSavedJob(receivedData);
   }
 
+   // To Open the apply link in a new tab
+  const handleApplyToJob = (applyLink) => {
+    window.open(applyLink, '_blank');
+  };
+
+  // To UnSave a job
+  async function handleUnSaveJob(jobId) {
+    const url = `${process.env.REACT_APP_SERVER_URL}/jobs/${jobId}`;
+    try {
+      let response = await fetch(url, {
+        method: 'DELETE',
+      });
+      if (response.status === 204) {
+        alert('Job unsaved successfully.');
+        // Refresh the list of saved jobs after unsaving one
+        handleSavedJobs();
+      } else {
+        console.log('Error:', response.statusText);
+        alert('Failed to unsave job.');
+      }
+    } catch (error) {
+      console.log('Error:', error.message);
+      alert('Failed to unsave job.');
+    }
+  }
 
   useEffect(() => {
     handleSavedJobs();
   }, []);
 
- // Check if user is authenticated and user.sub is defined before filtering
   const userSavedJobs = isAuthenticated && user && user.sub ? savedJob.filter((job) => job.sub === user.sub) : [];
-
 
   return (
     <div className="center">
@@ -34,19 +56,18 @@ const SavedCard = () => {
           <Card key={job.id} className="card">
             <Card.Body>
               <div className="card-content">
-                <img src={company} alt="Card CompanyImage" className="card-image" />
+                <img src={job.employer_logo === "" ? company : job.employer_logo} alt={job.employer_name} className="logo" />
                 <div className="card-text">
-                  <Card.Title>{job.job_title}</Card.Title>
+                  <Card.Title>{job.employer_name}</Card.Title>
                   <Card.Text>
-                    <p>Helllo</p>
-                    <p>Hello - Helllo</p>
+                    <p>{job.job_city}</p>
+                    <p>{job.job_title}</p>
                   </Card.Text>
                 </div>
               </div>
               <div className="card-buttons">
-                {/* <Button variant="secondary" onClick={handleShowModal}>More Details</Button> */}
-                <Button variant="primary">UnSave</Button>
-                <Button variant="primary">Apply To Job</Button>
+                <Button variant="primary" onClick={() => handleApplyToJob(job.job_apply_link)}>Apply To Job</Button>
+                <Button variant="primary" onClick={() => handleUnSaveJob(job.id)}>Un-Save</Button>
               </div>
             </Card.Body>
           </Card>
@@ -54,9 +75,7 @@ const SavedCard = () => {
       ) : (
         <p>No saved jobs found.</p>
       )}
-      {/* {showModal && <Details />} */}
     </div>
   );
 };
-
 export default SavedCard;

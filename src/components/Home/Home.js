@@ -13,6 +13,8 @@ function Home() {
   const [jobTitle, setJobTitle] = useState('');
   const [location, setLocation] = useState('');
   const [data, setData] = useState([]);
+
+
   const handleShowCards = () => {
     console.log('Job Title:', jobTitle);
     console.log('Location:', location);
@@ -25,9 +27,9 @@ function Home() {
     const url = process.env.REACT_APP_SERVER_URL
     const response = await fetch(`${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`);
     const allJobs = await response.json();
-    console.log(allJobs);
+    // console.log(allJobs);
     setData(allJobs);
-    console.log(data)
+    // console.log(data)
     }
     useEffect(() => {
       getِAllJobs();

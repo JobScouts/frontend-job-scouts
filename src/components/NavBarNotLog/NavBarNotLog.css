@@ -47,3 +47,16 @@
   margin-right: 15px;
 }
 
+/* Image Profile */
+
+.navbar img {
+  margin-left:40px;
+  width: 70px;
+  height: 70px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.navbar img:hover {
+  opacity: 0.9;
+}
