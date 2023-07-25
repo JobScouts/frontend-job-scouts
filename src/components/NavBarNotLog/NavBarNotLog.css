@@ -24,7 +24,7 @@
 }
 
 .nav-link:hover {
-  background-color: #FFD700; /* Change the background color to a different color */
+  background-color: #FFD700;
   color: #ffffff !important;
 }
 
@@ -47,12 +47,11 @@
   margin-right: 15px;
 }
 
-/* Image Profile */
 
 .navbar img {
   margin-left:40px;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   max-width: 100%;
   height: auto;
   border-radius: 50%;

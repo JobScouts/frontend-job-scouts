@@ -13,7 +13,6 @@ function NavBarNotLog() {
   return (
     <div>
       <Navbar className="bg-body-tertiary" style={{ height: '80px' }}>
-       {isAuthenticated && (user?.picture && <img src={user.picture}  alt={user.name} className='profileNavImg'/> )}
         <Container>
           <Navbar.Brand className="d-flex align-items-center navbar-brand">
             <img alt="" src={logo} width="110" height="120" />
@@ -65,6 +64,8 @@ function NavBarNotLog() {
                 </Nav.Link>
               </Nav.Item>
             )}
+                   {isAuthenticated && (user?.picture && <img src={user.picture}  alt={user.name} className='profileNavImg'/> )}
+
           </Nav>
         </Container>
       </Navbar>
