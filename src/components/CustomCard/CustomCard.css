@@ -1,53 +1,72 @@
+/* CustomCard.css */
 .title {
-    text-align: center;
-  }
-  
-  .location {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .location p {
-    margin: 0;
-  }
-  
-  .job {
-    text-align: center;
-    font-weight: bolder;
-  }
-  
-  .job span p {
-    display: inline-block;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .custom-button {
-    margin-right: 70px;
-  }
-  
-  .logo {
-    width: 100px;
-    height: 180px;
-    object-fit: cover !important;
-  }
-  
-  .btn {
-    background-color: #006c67 !important;
-    border-radius: calc(24px) !important;
-    border: 2px solid #006c67 !important;
-  }
-  
-  .main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    grid-gap: 20px;
-  }
-  
+  text-align: center;
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.location p {
+  margin: 0;
+}
+
+.job {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.job span p {
+  display: inline-block;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.custom-button {
+  margin-right: 70px;
+}
+
+.logo-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.btn {
+  background-color: #006c67 !important;
+  border-radius: calc(24px) !important;
+  border: 2px solid #006c67 !important;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-gap: 20px;
+}
+.alert-container {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.alert {
+  text-align: center;
+
+}
