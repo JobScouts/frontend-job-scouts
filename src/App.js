@@ -4,8 +4,6 @@ import About from './components/About/About'
 import Footer from './components/Footer/Footer'
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 import UserProfile from './components/Profile/Profile';
-
-import UserProfile from './components/Profile/Profile';
 import SavedCard from './components/SavedCard/SavedCard';
 function App() {
   return (
