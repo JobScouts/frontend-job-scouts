@@ -5,15 +5,17 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import logo from '../Assest/logo.png';
 import { useAuth0 } from '@auth0/auth0-react';
+import './NavBarNotLog.css'
 
 function NavBarNotLog() {
-  const { logout, isAuthenticated, loginWithRedirect } = useAuth0();
+  const { user , logout, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <div>
       <Navbar className="bg-body-tertiary" style={{ height: '80px' }}>
+       {isAuthenticated && (user?.picture && <img src={user.picture}  alt={user.name} className='profileNavImg'/> )}
         <Container>
-          <Navbar.Brand href="#home" className="d-flex align-items-center navbar-brand">
+          <Navbar.Brand className="d-flex align-items-center navbar-brand">
             <img alt="" src={logo} width="110" height="120" />
             <span style={{ fontSize: '2.1rem', fontWeight: 'bolder', color: '#006c67', marginLeft: '-35px', fontFamily: "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" }}>JobScouts</span>
           </Navbar.Brand>

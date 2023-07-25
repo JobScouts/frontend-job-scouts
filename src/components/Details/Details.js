@@ -4,18 +4,18 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Company from "../Assest/company.jpg";
 import "./Details.css";
-
 const Details = ({ job, handleCloseModal }) => {
   let lin = job.job_apply_link;
   const [showQualifications, setShowQualifications] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
-
   const handleQualifications = () => {
     setShowQualifications(!showQualifications);
   };
-
   const handleDescription = () => {
     setShowDescription(!showDescription);
+    const Details = ({ job, handleCloseModal }) => {
+  const handleApplyToJob = (applyLink) => {
+    window.open(applyLink, '_blank');
   };
 
   return (
@@ -73,12 +73,9 @@ const Details = ({ job, handleCloseModal }) => {
           <Button variant="secondary" onClick={handleCloseModal}>
             Close
           </Button>
-
-          <Link to={lin} target="_blank">
-            <Button variant="primary" onClick={handleCloseModal}>
+          <Button variant="primary" onClick={() => handleApplyToJob(job.job_apply_link)}>
               Apply To Job
             </Button>
-          </Link>
         </Modal.Footer>
       </Modal>
     </div>

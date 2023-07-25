@@ -7,23 +7,19 @@ import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
 import "./Home.css";
-
 function Home() {
   const [showCard, setShowCard] = useState(false);
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [data, setData] = useState([]);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const handleShowCards = () => {
     console.log("Job Title:", jobTitle);
     console.log("Location:", location);
     setShowCard(true);
     getِAllJobs();
   };
-
   async function getِAllJobs() {
     try{
       const url = process.env.REACT_APP_SERVER_URL;
@@ -39,13 +35,11 @@ function Home() {
     {
       setError(error.message);
       setLoading(false);
-    }
-    
+    } 
   }
   useEffect(() => {
     getِAllJobs();
   }, []);
-
   if (loading) {
     return <div className="loading-container">
     <b style={{marginLeft:'auto', marginRight:'Auto'}}>LOADING...</b>
@@ -119,6 +113,7 @@ function Home() {
             </Button>
           </a>
         </span>
+
       </div>
       <div className="second-container">
         <span className="second-content">
