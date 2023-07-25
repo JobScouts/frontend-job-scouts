@@ -15,7 +15,7 @@ function App() {
         <Route path='/UserProfile' element={<UserProfile/>}/>
         <Route path='/SavedJob' element={<SavedCard/>}/>
       </Routes>
-      <Footer />
+      <Footer/>
     </div>
   );
 
