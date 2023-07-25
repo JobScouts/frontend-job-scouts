@@ -14,6 +14,8 @@ const Details = ({ job, handleCloseModal }) => {
   };
 
   const handleDescription = () => {
+
+    setShowDescription(!showDescription);
     setShowDescription(!showDescription);
   };
 
