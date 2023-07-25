@@ -15,7 +15,7 @@ function NavBarNotLog() {
       <Navbar className="bg-body-tertiary" style={{ height: '80px' }}>
        {isAuthenticated && (user?.picture && <img src={user.picture}  alt={user.name} className='profileNavImg'/> )}
         <Container>
-          <Navbar.Brand href="#home" className="d-flex align-items-center navbar-brand">
+          <Navbar.Brand className="d-flex align-items-center navbar-brand">
             <img alt="" src={logo} width="110" height="120" />
             <span style={{ fontSize: '2.1rem', fontWeight: 'bolder', color: '#006c67', marginLeft: '-35px', fontFamily: "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" }}>JobScouts</span>
           </Navbar.Brand>
