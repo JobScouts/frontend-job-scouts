@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Company from "../Assest/company.jpg";
+import Company from '../Assest/company.jpg'; // Corrected import statement for the image.
 import "./Details.css";
+
 const Details = ({ job, handleCloseModal }) => {
-  let lin = job.job_apply_link;
   const [showQualifications, setShowQualifications] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
+
   const handleQualifications = () => {
     setShowQualifications(!showQualifications);
   };
+
   const handleDescription = () => {
-    setShowDescription(!showDescription);}
-    const Details = ({ job, handleCloseModal }) => {
+
+    setShowDescription(!showDescription);
+    setShowDescription(!showDescription);
+  };
+
   const handleApplyToJob = (applyLink) => {
     window.open(applyLink, '_blank');
   };
@@ -22,14 +27,15 @@ const Details = ({ job, handleCloseModal }) => {
     <div>
       <Modal show={true} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title style={{textAlign:'center'}}>{job.employer_name}</Modal.Title>
+          <Modal.Title style={{ textAlign: "center" }}>{job.employer_name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <img
-              src={job.employer_logo === "" ? Company : job.employer_logo}
-              alt={job.employer_name}
-              className="company-logo"
-              style={{ width: "200px", height: "200px", display: "block", margin: "0 auto" }}/>
+          <img
+            src={job.employer_logo === "" ? Company : job.employer_logo}
+            alt={job.employer_name}
+            className="company-logo"
+            style={{ width: "200px", height: "200px", display: "block", margin: "0 auto" }}
+          />
           <p>
             <b>Our WebSite:</b>{" "}
             {job.employer_website === ""
@@ -74,8 +80,8 @@ const Details = ({ job, handleCloseModal }) => {
             Close
           </Button>
           <Button variant="primary" onClick={() => handleApplyToJob(job.job_apply_link)}>
-              Apply To Job
-            </Button>
+            Apply To Job
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
