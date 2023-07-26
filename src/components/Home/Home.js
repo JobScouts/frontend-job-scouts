@@ -6,6 +6,9 @@ import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
+// import { BarLoader } from 'react-spinner-animated';
+import 'react-spinner-animated/dist/index.css'
+
 import "./Home.css";
 function Home() {
   const [showCard, setShowCard] = useState(false);
@@ -19,9 +22,10 @@ function Home() {
     console.log("Location:", location);
     setShowCard(true);
     getِAllJobs();
+    console.log(data);
   };
   async function getِAllJobs() {
-    try{
+    try {
       const url = process.env.REACT_APP_SERVER_URL;
       const response = await fetch(
         `${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`
@@ -31,18 +35,23 @@ function Home() {
       setData(allJobs);
       console.log(data);
       setLoading(false);
-    }catch(error)
-    {
+    } catch (error) {
       setError(error.message);
       setLoading(false);
-    } 
+    }
   }
   useEffect(() => {
     getِAllJobs();
   }, []);
   if (loading) {
-    return <div className="loading-container">
-    <b style={{marginLeft:'auto', marginRight:'Auto'}}>LOADING...</b>
+    return <div className="spinner-container">
+
+      <svg width="100%" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg" >
+        <g id="spinner">
+          <circle id="bottom" cx="138" cy="138" r="114" stroke="#121212" stroke-width="18" />
+          <circle id="upper" cx="138" cy="138" r="123" stroke="#00B894" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="373 100" />
+        </g>
+      </svg>
     </div>
   }
 
