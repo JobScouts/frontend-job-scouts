@@ -4,6 +4,9 @@ import Card from 'react-bootstrap/Card';
 import company from '../Assest/company.jpg';
 import './SavedCard.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import Oops from "../Assest/Oops.avif";
+import { Link } from 'react-router-dom';
+
 
 const SavedCard = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -17,7 +20,7 @@ const SavedCard = () => {
     setSavedJob(receivedData);
   }
 
-   // To Open the apply link in a new tab
+  // To Open the apply link in a new tab
   const handleApplyToJob = (applyLink) => {
     window.open(applyLink, '_blank');
   };
@@ -73,7 +76,26 @@ const SavedCard = () => {
           </Card>
         ))
       ) : (
-        <p>No saved jobs found.</p>
+        <div className="no-jobs-container">
+          <img
+            src={Oops}
+            alt="No Saved Jobs"
+            className="no-jobs-image"
+          />
+          <p className="no-jobs-text">
+            Oops! You don't have any saved jobs.
+            <br />
+            Start exploring and saving jobs to view them here.
+          </p>
+
+          <Link to="/">
+            <Button variant="primary" className="explore-button">
+              Explore Jobs
+            </Button>
+          </Link>
+
+        </div>
+
       )}
     </div>
   );
