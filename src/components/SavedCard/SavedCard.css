@@ -27,3 +27,33 @@
     margin-left: 10px;
   }
   
+
+
+  .no-jobs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .no-jobs-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .no-jobs-text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .explore-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  .no-jobs-image{
+    height: 300px;
+    width: 25%;
+  }
