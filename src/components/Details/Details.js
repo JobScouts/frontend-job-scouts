@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Company from '../Assest/company.jpg'; // Corrected import statement for the image.
+import Company from '../Assest/company.jpg'; 
 import "./Details.css";
 
 const Details = ({ job, handleCloseModal }) => {
