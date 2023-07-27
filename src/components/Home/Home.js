@@ -6,7 +6,7 @@ import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
-// import { BarLoader } from 'react-spinner-animated';
+//import { BarLoader } from 'react-spinner-animated';
 import 'react-spinner-animated/dist/index.css'
 
 import "./Home.css";
@@ -50,9 +50,9 @@ function Home() {
         <g id="spinner">
           <circle id="bottom" cx="138" cy="138" r="114" stroke="#121212" stroke-width="18" />
           <circle id="upper" cx="138" cy="138" r="123" stroke="#00B894" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="373 100" />
-        </g>
+       </g>
       </svg>
-    </div>
+   </div>
   }
 
   if (error) {
