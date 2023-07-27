@@ -6,6 +6,8 @@ import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
+import 'react-spinner-animated/dist/index.css'
+
 import "./Home.css";
 function Home() {
   const [showCard, setShowCard] = useState(false);
@@ -19,9 +21,10 @@ function Home() {
     console.log("Location:", location);
     setShowCard(true);
     getِAllJobs();
+    console.log(data);
   };
   async function getِAllJobs() {
-    try{
+    try {
       const url = process.env.REACT_APP_SERVER_URL;
       const response = await fetch(
         `${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`
@@ -31,20 +34,25 @@ function Home() {
       setData(allJobs);
       console.log(data);
       setLoading(false);
-    }catch(error)
-    {
+    } catch (error) {
       setError(error.message);
       setLoading(false);
-    } 
+    }
   }
   useEffect(() => {
     getِAllJobs();
   }, []);
-  if (loading) {
-    return <div className="loading-container">
-    <b style={{marginLeft:'auto', marginRight:'Auto'}}>LOADING...</b>
-    </div>
-  }
+  // if (loading) {
+  //   return <div className="spinner-container">
+
+  //     <svg width="100%" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg" >
+  //       <g id="spinner">
+  //         <circle id="bottom" cx="138" cy="138" r="114" stroke="#121212" stroke-width="18" />
+  //         <circle id="upper" cx="138" cy="138" r="123" stroke="#00B894" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="373 100" />
+  //       </g>
+  //     </svg>
+  //   </div>
+  // }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -85,9 +93,123 @@ function Home() {
             <img src={search} alt="Search Icon" className="search-icon" />
           </Col>
         </Row>
+     {showCard && <CustomCard data={data} />}                  
 
-        {showCard && <CustomCard data={data} />}
+        {/* <div className="con">
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div> 
+
+
+  
+
+        </div>*/}
+
       </Container>
+
+
+
 
       <div className="additional-container">
         <img

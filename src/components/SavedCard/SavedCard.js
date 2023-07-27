@@ -4,11 +4,16 @@ import Card from 'react-bootstrap/Card';
 import company from '../Assest/company.jpg';
 import './SavedCard.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import Oops from "../Assest/Oops.avif";
+import { Link } from 'react-router-dom';
+import Alert from 'react-bootstrap/Alert';
+
 
 const SavedCard = () => {
   const { user, isAuthenticated } = useAuth0();
   const [savedJob, setSavedJob] = useState([]);
-
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertVariant, setAlertVariant] = useState('success');
 
   async function handleSavedJobs() {
     const url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
@@ -17,7 +22,7 @@ const SavedCard = () => {
     setSavedJob(receivedData);
   }
 
-   // To Open the apply link in a new tab
+  // To Open the apply link in a new tab
   const handleApplyToJob = (applyLink) => {
     window.open(applyLink, '_blank');
   };
@@ -30,16 +35,20 @@ const SavedCard = () => {
         method: 'DELETE',
       });
       if (response.status === 204) {
-        alert('Job unsaved successfully.');
+        setAlertMessage('Job unsaved successfully.');
+        setAlertVariant('success');
+
         // Refresh the list of saved jobs after unsaving one
         handleSavedJobs();
       } else {
         console.log('Error:', response.statusText);
-        alert('Failed to unsave job.');
+        setAlertMessage('Error: Unable to unsave the job.');
+        setAlertVariant('danger');
       }
     } catch (error) {
       console.log('Error:', error.message);
-      alert('Failed to unsave job.');
+      setAlertMessage('Error: ' + error.message);
+      setAlertVariant('danger');
     }
   }
 
@@ -51,6 +60,15 @@ const SavedCard = () => {
 
   return (
     <div className="center">
+
+      {alertMessage && (
+        <div className="fixed-alert">
+          <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>
+            {alertMessage}
+          </Alert>
+        </div>
+      )}
+
       {userSavedJobs.length > 0 ? (
         userSavedJobs.map((job) => (
           <Card key={job.id} className="card">
@@ -73,7 +91,26 @@ const SavedCard = () => {
           </Card>
         ))
       ) : (
-        <p>No saved jobs found.</p>
+        <div className="no-jobs-container">
+          <img
+            src={Oops}
+            alt="No Saved Jobs"
+            className="no-jobs-image"
+          />
+          <p className="no-jobs-text">
+            Oops! You don't have any saved jobs.
+            <br />
+            Start exploring and saving jobs to view them here.
+          </p>
+
+          <Link to="/">
+            <Button variant="primary" className="explore-button">
+              Explore Jobs
+            </Button>
+          </Link>
+
+        </div>
+
       )}
     </div>
   );

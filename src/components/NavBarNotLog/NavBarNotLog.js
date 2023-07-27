@@ -39,13 +39,13 @@ function NavBarNotLog() {
               </Nav.Item>
             )}
 
-            {isAuthenticated && (
+            {/* {isAuthenticated && (
               <Nav.Item>
                 <Nav.Link href="/UserProfile" className="nav-link">
                   Profile
                 </Nav.Link>
               </Nav.Item>
-            )}
+            )} */}
 
             {!isAuthenticated ? (
               <Nav.Item>
@@ -64,7 +64,7 @@ function NavBarNotLog() {
                 </Nav.Link>
               </Nav.Item>
             )}
-                   {isAuthenticated && (user?.picture && <img src={user.picture}  alt={user.name} className='profileNavImg'/> )}
+            {isAuthenticated && (user?.picture && <Nav.Link href="/UserProfile"><img src={user.picture}  alt={user.name} className='profileNavImg'/> </Nav.Link>)}
 
           </Nav>
         </Container>

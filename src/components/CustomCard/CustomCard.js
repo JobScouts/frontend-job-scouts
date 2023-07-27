@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import React, { useState, useEffect } from "react";
 import Alert from "react-bootstrap/Alert";
 import "./CustomCard.css";
 import Details from "../Details/Details";
@@ -10,9 +8,26 @@ import Company from "../Assest/company.jpg";
 const CustomCard = (props) => {
   let data = props.data;
   const { user, isAuthenticated } = useAuth0();
+  const [savedJob, setSavedJob] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const [showAlert, setShowAlert] = useState(true);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      async function fetchSavedJobs() {
+        const url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
+        try {
+          let response = await fetch(url);
+          let receivedData = await response.json();
+          setSavedJob(receivedData);
+        } catch (error) {
+          console.log("Error fetching saved jobs:", error.message);
+        }
+      }
+      fetchSavedJobs();
+    }
+  }, [isAuthenticated]);
 
   const handleShowModal = (job) => {
     setSelectedJob(job);
@@ -24,42 +39,52 @@ const CustomCard = (props) => {
     setShowModal(false);
   };
 
-  async function handleSaveJob(obj) {
+  const handleSaveJob = async (obj) => {
     if (isAuthenticated) {
-      let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
-      const jobData = {
-        job_title: obj.job_title,
-        employer_name: obj.employer_name,
-        employer_logo: obj.employer_logo,
-        employer_website: obj.employer_website,
-        job_highlights: obj.job_highlights,
-        job_apply_link: obj.job_apply_link,
-        sub: user.sub,
-      };
-      try {
-        let response = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(jobData),
-        });
+      const jobExists = savedJob.some(
+        (savedJob) => savedJob.sub === user.sub && savedJob.job_title === obj.job_title
+      );
 
-        if (response.status === 201) {
-          alert("Added successfully");
-        } else {
-          console.log("Error:", response.statusText);
+      if (jobExists) {
+        alert("This job is already saved to your profile.");
+      } else {
+        let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
+        const jobData = {
+          job_title: obj.job_title,
+          employer_name: obj.employer_name,
+          employer_logo: obj.employer_logo,
+          employer_website: obj.employer_website,
+          job_highlights: obj.job_highlights,
+          job_apply_link: obj.job_apply_link,
+          sub: user.sub,
+        };
+        try {
+          let response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(jobData),
+          });
+
+          if (response.status === 201) {
+            alert("Added successfully");
+          } else {
+            console.log("Error:", response.statusText);
+            alert("Failed to add Job");
+          }
+        } catch (error) {
+          console.log("Error:", error.message);
           alert("Failed to add Job");
         }
-      } catch (error) {
-        console.log("Error:", error.message);
-        alert("Failed to add Job");
       }
     } else {
       alert("You have to login to add jobs to your profile");
     }
-  }
+  };
+
+  const userSavedJobs = isAuthenticated && user && user.sub ? savedJob.filter((job) => job.sub === user.sub) : [];
 
   return (
-    <div className="main">
+    <div>
       {data.length === 0 ? (
         <div className="alert-container">
           <Alert
@@ -74,47 +99,27 @@ const CustomCard = (props) => {
           </Alert>
         </div>
       ) : (
-        data.map((obj, i) => (
-          <div key={i}>
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={obj.employer_logo === "" ? Company : obj.employer_logo}
-                  alt="employer_logo"
-                  className="logo"
-                />
+        <div className="con">
+          {data.map((obj, i) => (
+            <div className="card" key={i}>
+              <h2 className="Maintitle" style={{width:"100%"}}>{obj.employer_name}</h2>
+              <h5 className="title" style={{ top: "270px" }}>{obj.job_city}</h5>
+              <h5 className="title" style={{ top: "310px" }}>{obj.job_country}</h5>
+              <h5 className="title" style={{ top: "350px" }}>{obj.job_title}</h5>
+              <div className="bar">
+                <div className="emptybar"></div>
+                <div className="filledbar"></div>
               </div>
-              <Card.Body>
-                <Card.Title className="title">{obj.employer_name}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{obj.job_city}</p> <p>,</p> <p>{obj.job_country}</p>
-                  </div>
-                  <div className="job">
-                    <p>{obj.job_title}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
-        ))
+              <div className="circle">
+                <circle className="stroke" cx="60" cy="60" r="50">
+                  <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
+                </circle>
+              </div>
+              <button className="button" onClick={() => handleSaveJob(obj)}><span>Save</span></button>
+              <button className="button" style={{ left: "200px" }} onClick={() => handleShowModal(obj)}><span>More</span></button>
+            </div>
+          ))}
+        </div>
       )}
       {showModal && (
         <Details job={selectedJob} handleCloseModal={handleCloseModal} />
