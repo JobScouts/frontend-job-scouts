@@ -19,21 +19,29 @@
 .navbar-brand span {
   font-size: 2.1rem;
   font-weight: bolder;
-  color: #01a561;
+  color: #101915;
   margin-left: -35px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.btn-success
+{
+  background-color: #006c67 !important;
+}
+.btn-success:hover{
+  background-color: #FFFFFF !important;
+  color:#006c67 !important;
 }
 
 .nav-link {
   color: #1a1919 !important;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
   background-color: #006c67;
   color: #ffffff !important;
   font-weight: bold;
   border-radius: 5%;
-}
+} */
 
 .navbar .btn-outline-success {
   border-color: #00B894;

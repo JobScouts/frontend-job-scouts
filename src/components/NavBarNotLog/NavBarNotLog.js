@@ -50,7 +50,7 @@ function NavBarNotLog() {
             {!isAuthenticated ? (
               <Nav.Item>
                 <Nav.Link eventKey="link-1">
-                  <Button variant="success" className="success" onClick={() => { loginWithRedirect() }}>
+                  <Button variant="success" className="btn-success" onClick={() => { loginWithRedirect() }}>
                     LogIn
                   </Button>
                 </Nav.Link>
@@ -58,7 +58,7 @@ function NavBarNotLog() {
             ) : (
               <Nav.Item>
                 <Nav.Link eventKey="link-1">
-                  <Button variant="success" className="success" onClick={() => { logout() }}>
+                  <Button variant="success" className="btn-success" onClick={() => { logout() }}>
                     LogOut
                   </Button>
                 </Nav.Link>

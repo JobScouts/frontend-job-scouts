@@ -8,18 +8,24 @@ div .con {
   align-content: space-around;
 }
 
-.con .card {
+.con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+}
 
-  height: 500px;
+.con .card {
+  height: 450px;
   width: 300px;
   border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000000;
+  box-shadow: 1rem 0 1rem  rgb(113, 110, 110,0.5);
   transition: 0.4s ease-out;
-  left: 0px;
-  background-color: #8e8e8e;
-  /* background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgb(113, 110, 110) 0%, rgb(96, 212, 142) 35%, rgb(2, 54, 12) 100%); */
+  left: 30px;
+  margin-left: 20px;
+  margin-bottom: 0;
+  background-color: #ffffff;
 }
+
 
 .card:hover {
   transform: translateY(-20px);
@@ -32,22 +38,29 @@ div .con {
   transition: 0.4s ease-out;
 }
 
-.title {
+.title_job {
   color: rgb(0, 0, 0);
   font-weight: 300;
   position: absolute;
   left: 20px;
-  top: 230px;
+  top: 270px; /* Adjust the top value to move it down slightly */
+}
+.title {
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  position: absolute;
+  left: 120px; /* Adjust the left value to move it to the right */
+  top: 270px; /* Adjust the top value to move it down slightly */
 }
 
 .Maintitle{
-
+  font-size: 20px;
+  white-space: nowrap;
   text-align: center;
   align-content: center;
   color: #006c67;
-  font-weight: 500;
+  font-weight: 700;
   position: absolute;
-  /* left: 20px; */
   top: 230px;
 
 }
@@ -73,7 +86,8 @@ div .con {
   width: 0px;
   height: 100%;
   background: rgb(0, 183, 255);
-  background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgb(29, 237, 32) 65%, rgb(219, 12, 12) 100%);
+  background: linear-gradient(90deg, #eb871c 0%, #046f11 65%, #0dbdb3 100%);
+
   transition: 0.6s ease-out;
 }
 
@@ -120,19 +134,24 @@ svg {
 .button {
   display: inline-block;
   border-radius: calc(24px);
-  background-color: #37593e;
+
+  background-color: #006c67;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
+
   padding: 2px 5px;
   width: 110px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
-  bottom: 10px;
+
+  margin: -15.5px;
+  bottom: 30px;
   position: absolute;
   left: 20px;
+  height: 40px;
+
 }
 
 .button span {

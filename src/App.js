@@ -5,7 +5,8 @@ import Footer from './components/Footer/Footer'
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 import UserProfile from './components/Profile/Profile';
 import SavedCard from './components/SavedCard/SavedCard';
-import CustomCard from './components/CustomCard/CustomCard';
+
+
 function App() {
   return (
     <div >
@@ -17,6 +18,8 @@ function App() {
         <Route path='/SavedJob' element={<SavedCard/>}/> 
         {/* <Route path='/' element={<CustomCard/>}/>  */}
       </Routes>
+      {/* <UpdateComponent/> */}
+      {/* <Test/> */}
       <Footer/>
     </div>
   );

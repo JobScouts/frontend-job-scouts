@@ -105,7 +105,9 @@ const CustomCard = (props) => {
               <h2 className="Maintitle" style={{width:"100%"}}>{obj.employer_name}</h2>
               <h5 className="title" style={{ top: "270px" }}>{obj.job_city}</h5>
               <h5 className="title" style={{ top: "310px" }}>{obj.job_country}</h5>
-              <h5 className="title" style={{ top: "350px" }}>{obj.job_title}</h5>
+
+              <h5 className="title_job" style={{ top: "350px" }}>{obj.job_title}</h5>
+
               <div className="bar">
                 <div className="emptybar"></div>
                 <div className="filledbar"></div>
