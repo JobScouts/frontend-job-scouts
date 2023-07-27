@@ -5,18 +5,18 @@ import Footer from './components/Footer/Footer'
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 import UserProfile from './components/Profile/Profile';
 import SavedCard from './components/SavedCard/SavedCard';
-import UpdateComponent from './components/updte/UpdateComponent'
-// import Test from './components/Test/Test'
+
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <NavBarNotLog />
-      <Routes>
-        <Route path="/" element={<Home />} />
+       <Routes>
+       <Route path="/" element={<Home />} />
         <Route path='/About' element={<About />} />
         <Route path='/UserProfile' element={<UserProfile/>}/>
-        <Route path='/SavedJob' element={<SavedCard/>}/>
+        <Route path='/SavedJob' element={<SavedCard/>}/> 
+        {/* <Route path='/' element={<CustomCard/>}/>  */}
       </Routes>
       {/* <UpdateComponent/> */}
       {/* <Test/> */}

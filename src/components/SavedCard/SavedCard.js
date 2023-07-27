@@ -6,12 +6,14 @@ import './SavedCard.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Oops from "../Assest/Oops.avif";
 import { Link } from 'react-router-dom';
+import Alert from 'react-bootstrap/Alert';
 
 
 const SavedCard = () => {
   const { user, isAuthenticated } = useAuth0();
   const [savedJob, setSavedJob] = useState([]);
-
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertVariant, setAlertVariant] = useState('success');
 
   async function handleSavedJobs() {
     const url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
@@ -33,16 +35,20 @@ const SavedCard = () => {
         method: 'DELETE',
       });
       if (response.status === 204) {
-        alert('Job unsaved successfully.');
+        setAlertMessage('Job unsaved successfully.');
+        setAlertVariant('success');
+
         // Refresh the list of saved jobs after unsaving one
         handleSavedJobs();
       } else {
         console.log('Error:', response.statusText);
-        alert('Failed to unsave job.');
+        setAlertMessage('Error: Unable to unsave the job.');
+        setAlertVariant('danger');
       }
     } catch (error) {
       console.log('Error:', error.message);
-      alert('Failed to unsave job.');
+      setAlertMessage('Error: ' + error.message);
+      setAlertVariant('danger');
     }
   }
 
@@ -54,6 +60,15 @@ const SavedCard = () => {
 
   return (
     <div className="center">
+
+      {alertMessage && (
+        <div className="fixed-alert">
+          <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>
+            {alertMessage}
+          </Alert>
+        </div>
+      )}
+
       {userSavedJobs.length > 0 ? (
         userSavedJobs.map((job) => (
           <Card key={job.id} className="card">
