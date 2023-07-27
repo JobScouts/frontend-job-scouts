@@ -57,6 +57,8 @@ const CustomCard = (props) => {
           job_highlights: obj.job_highlights,
           job_apply_link: obj.job_apply_link,
           sub: user.sub,
+          job_city:obj.job_city,
+          job_country:obj.job_country
         };
         try {
           let response = await fetch(url, {
@@ -101,24 +103,33 @@ const CustomCard = (props) => {
       ) : (
         <div className="con">
           {data.map((obj, i) => (
-            <div className="card" key={i}>
-              <h2 className="Maintitle" style={{width:"100%"}}>{obj.employer_name}</h2>
-              <h5 className="title" style={{ top: "270px" }}>{obj.job_city}</h5>
-              <h5 className="title" style={{ top: "310px" }}>{obj.job_country}</h5>
 
-              <h5 className="title_job" style={{ top: "350px" }}>{obj.job_title}</h5>
+            <div className="card" key={i}>
+
+              {/* <div className="divafterbar"> */}
+
+
+                <h2 className="Maintitle" style={{height:"60px",width:"100%",whiteSpace:"normal",wordWrap:"break-word"}}>{obj.employer_name}</h2>
+                <h5 className="title" style={{ top: "270px" }}>{obj.job_city || "Not specified"} , {obj.job_country || "Not specified"} </h5>
+                {/* <h5 className="title" style={{ top: "310px" }}>{obj.job_country || "Not specified"}</h5> */}
+                <h5 className="title_job" style={{ top: "350px" }}>{obj.job_title}</h5>
+              
+              
+              <button className="button" onClick={() => handleSaveJob(obj)}><span>Save</span></button>
+              <button className="button" style={{ left: "230px" }} onClick={() => handleShowModal(obj)}><span>More</span></button>
+              
+              {/* </div> */}
 
               <div className="bar">
                 <div className="emptybar"></div>
                 <div className="filledbar"></div>
               </div>
               <div className="circle">
-                <circle className="stroke" cx="60" cy="60" r="50">
+                {/* <circle className="stroke" cx="60" cy="60" r="50"> */}
                   <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
-                </circle>
+                {/* </circle> */}
               </div>
-              <button className="button" onClick={() => handleSaveJob(obj)}><span>Save</span></button>
-              <button className="button" style={{ left: "200px" }} onClick={() => handleShowModal(obj)}><span>More</span></button>
+             
             </div>
           ))}
         </div>

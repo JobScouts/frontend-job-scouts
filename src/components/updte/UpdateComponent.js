@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 import Interview from "../Assest/interview.jpg";
 import Cv from "../Assest/ace.jpg";
@@ -10,7 +10,8 @@ import "./UpdateComponent.css";
 const UpdateComponent = () => {
   return (
     <div className="container">
-      <div className="item" >
+    <div className="mycontup">
+    <div className="item" >
         <img src={Interview} alt="Interview Icon" className="icon" />
         <div className="content">
           <h4>Chart Your Path to Interview Success</h4>
@@ -69,6 +70,8 @@ const UpdateComponent = () => {
           </a>
         </div>
       </div>
+
+    </div>
     </div>
   );
 };
