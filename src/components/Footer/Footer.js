@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="footer-content">
         <h3>Company</h3>
         <ul className="footer-links">
-          <li><a href="/About">About Us</a></li>
+          <li><a href="/About" style={{position:'relative',left: '20px'}}>About Us </a></li>
         </ul>
       </div>
       
       <div className="footer-content">
-        <h3>Help & Contact</h3>
+        <h3>Contact</h3>
         <ul className="footer-links">
           <li><a href="/help">Help Center</a></li>
           <li><a href="/Contact Us">Contact Us</a></li>
@@ -28,8 +28,8 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footer-content">
-        <h3>Premium</h3>
-        <p>Premium is not available </p>
+        <h3 style={{left:"15px", textAlign:'center'}}>Premium</h3>
+        <p style={{left: '10px', textAlign:'center'}}>Premium is not available </p>
       </div>
     </footer>
   );

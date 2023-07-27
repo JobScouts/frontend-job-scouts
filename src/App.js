@@ -5,6 +5,9 @@ import Footer from './components/Footer/Footer'
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 import UserProfile from './components/Profile/Profile';
 import SavedCard from './components/SavedCard/SavedCard';
+import UpdateComponent from './components/updte/UpdateComponent'
+import Test from './components/Test/Test'
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +18,8 @@ function App() {
         <Route path='/UserProfile' element={<UserProfile/>}/>
         <Route path='/SavedJob' element={<SavedCard/>}/>
       </Routes>
+      {/* <UpdateComponent/> */}
+      <Test/>
       <Footer/>
     </div>
   );

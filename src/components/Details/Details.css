@@ -1,3 +1,43 @@
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.modal-content {
+  width: 100%; 
+  max-width: 900px; 
+  border-radius: 8px;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .modal-title {
-    text-align: center !important;
-  }
+  color: #006c67 !important;
+  font-size: 24px; 
+  font-weight: bolder !important; 
+}
+
+.see-more-button
+{
+background-color: white !important;
+color: #006c67 !important;
+font-weight: bold !important;
+}
+.myp{
+  background-color: #f5f5f5;
+  border-radius: 5%;
+}
