@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import search from "../Assest/search.jpg";
 import Interview from "../Assest/interview.jpg";
 import Cv from "../Assest/ace.jpg";
 import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
-// import { BarLoader } from 'react-spinner-animated';
 import 'react-spinner-animated/dist/index.css'
-import Company from "../Assest/company.jpg"
 
 import "./Home.css";
 function Home() {
@@ -22,28 +20,28 @@ function Home() {
     console.log("Job Title:", jobTitle);
     console.log("Location:", location);
     setShowCard(true);
-    // getِAllJobs();
+    getِAllJobs();
     console.log(data);
   };
-  // async function getِAllJobs() {
-  //   try {
-  //     const url = process.env.REACT_APP_SERVER_URL;
-  //     const response = await fetch(
-  //       `${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`
-  //     );
-  //     const allJobs = await response.json();
-  //     console.log(allJobs);
-  //     setData(allJobs);
-  //     console.log(data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setError(error.message);
-  //     setLoading(false);
-  //   }
-  // }
-  // useEffect(() => {
-  //   getِAllJobs();
-  // }, []);
+  async function getِAllJobs() {
+    try {
+      const url = process.env.REACT_APP_SERVER_URL;
+      const response = await fetch(
+        `${url}/jobSearch?jobTitle=${jobTitle}&country=${location}`
+      );
+      const allJobs = await response.json();
+      console.log(allJobs);
+      setData(allJobs);
+      console.log(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    getِAllJobs();
+  }, []);
   // if (loading) {
   //   return <div className="spinner-container">
 
@@ -86,7 +84,7 @@ function Home() {
             <Button
               variant="success"
               className="search-button"
-              // onClick={handleShowCards}
+              onClick={handleShowCards}
             >
               Search Jobs
             </Button>
@@ -95,351 +93,123 @@ function Home() {
             <img src={search} alt="Search Icon" className="search-icon" />
           </Col>
         </Row>
+     {showCard && <CustomCard data={data} />}                  
 
+        {/* <div className="con">
 
-{/* i will add some design for static card to be flex */}
-        <div key={1} style={{ display : "flex" , flexDirection : "row" , alignItems : "stretch" , justifyContent:"space-between" , alignContent:"space-around" , gap:"2" ,flexWrap : "wrap"}}> 
-
-           {/* static card 1 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-            {/* static card 2 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-            {/* static card 3 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-
-            {/* static card 4 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-            {/* static card 5 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-
-            {/* static card 6 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-
-            {/* static card 7 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
-
-
-            {/* static card 8 */}
-
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={Company}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{"employer_name"}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{"city"}</p> <p>,</p> <p>{"country"}</p>
-                  </div>
-                  <div className="job">
-                    <p>{"job_title"}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    // onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    // onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
           </div>
 
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="title">Card 2</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="60" cy="60" r="50" />
+              </svg>
+            </div>
+          </div> 
+
+
+  
+
+        </div>*/}
+
       </Container>
+
+
+
 
       <div className="additional-container">
         <img

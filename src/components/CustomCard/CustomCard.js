@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "./CustomCard.css";
 import Details from "../Details/Details";
 import { useAuth0 } from "@auth0/auth0-react";
 import Company from "../Assest/company.jpg";
-import AlertTitle from '@mui/material/AlertTitle';
+// import AlertTitle from '@mui/material/AlertTitle';
 
 
 const CustomCard = (props) => {
@@ -61,67 +61,247 @@ const CustomCard = (props) => {
   }
 
   return (
-    <div className="main">
-      {data.length === 0 ? (
-        <div className="alert-container">
-          <Alert
-            show={showAlert}
-            variant="success"
-            onClose={() => setShowAlert(false)}
-            dismissible
-            className="alert"
-          >
-            <Alert.Heading>Attention!</Alert.Heading>
-            <p>Job Title Or Location Is Not Found.</p>
-          </Alert>
+    <div>
+    {
+     data.length === 0 ? (
+      <div className="alert-container">
+        <Alert
+          show={showAlert}
+          variant="success"
+          onClose={() => setShowAlert(false)}
+          dismissible
+          className="alert"
+        >
+          <Alert.Heading>Attention!</Alert.Heading>
+          <p>Job Title Or Location Is Not Found.</p>
+        </Alert>
+      </div>
+    ) : (
+     
+      <div class="con">
+      {data.map((obj, i) => (
+
+     
+  <div class="card">
+        <h3 class="title">{obj.employer_name}</h3>
+        <h3 class="title" style={{ top: "270px" }}>{obj.job_city}</h3>
+        <h3 class="title" style={{ top: "310px" }}>{obj.job_country}</h3>
+        <h3 class="title" style={{ top: "350px" }}>{obj.job_title}</h3>
+        <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
         </div>
-      ) : (
-        data.map((obj, i) => (
-          <div key={i}>
-            <Card style={{ width: "20rem" }} className="card">
-              <div className="logo-container">
-                <Card.Img
-                  variant="top"
-                  src={obj.employer_logo === "" ? Company : obj.employer_logo}
-                  alt="employer_logo"
-                  className="logo"
-                />
-              </div>
-              <Card.Body>
-                <Card.Title className="title">{obj.employer_name}</Card.Title>
-                <Card.Text>
-                  <div className="location">
-                    <p>{obj.job_city}</p> <p>,</p> <p>{obj.job_country}</p>
-                  </div>
-                  <div className="job">
-                    <p>{obj.job_title}</p>
-                  </div>
-                </Card.Text>
-                <div className="button-container">
-                  <Button
-                    variant="primary"
-                    className="custom-button btn"
-                    onClick={() => handleShowModal(obj)}
-                  >
-                    More Details
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="btn"
-                    onClick={() => handleSaveJob(obj)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
-        ))
-      )}
-      {showModal && (
-        <Details job={selectedJob} handleCloseModal={handleCloseModal} />
-      )}
-    </div>
+        <div class="circle">
+              <circle class="stroke" cx="60" cy="60" r="50" >
+                <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
+              </circle>
+        </div>
+        <button class="button"  onClick={() => handleSaveJob(obj)} > <span>Save</span>  </button>
+        <button class="button" style={{ left: "200px" }} onClick={() => handleShowModal(obj)}>  <span>More</span>  </button>
+  </div>
+
+                            ) 
+       )// End map 
+       }
+
+</div> // End con
+
+       ) /// End else
+       
+       }
+       {showModal && (
+         <Details job={selectedJob} handleCloseModal={handleCloseModal} />
+       )}
+     </div>
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    // <div className="mainDiv">
+
+
+    //   <div class="con">
+    //     {/* Custom */}
+    //         <div class="card" style={{ backgroundColor: "red" }}>
+    //               <h3 class="title">{obj.employer_name}</h3>
+    //               <h3 class="title" style={{ top: "270px" }}>{obj.job_city}</h3>
+    //               <h3 class="title" style={{ top: "310px" }}>{obj.job_country}</h3>
+    //               <h3 class="title" style={{ top: "350px" }}>{obj.obj.job_title}</h3>
+    //               <div class="bar">
+    //                     <div class="emptybar"></div>
+    //                     <div class="filledbar"></div>
+    //               </div>
+    //               <div class="circle">
+    //                     <circle class="stroke" cx="60" cy="60" r="50" >
+    //                       <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
+    //                     </circle>
+    //               </div>
+    //               <button class="button"><span>Save</span></button>
+    //               <button class="button" style={{ left: "200px" }}><span>More</span></button>
+    //         </div>
+    //   </div>
+
+
+    // </div>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // <div className="mainDiv"> 
+    //   <div className="custmcontainer">
+    //     <div class="card">
+    //         <h3 class="title">Card 2</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    //     <div class="card">
+    //         <h3 class="title">Card 3</h3>
+    //         <div class="bar">
+    //             <div class="emptybar"></div>
+    //             <div class="filledbar"></div>
+    //         </div>
+    //         <div class="circle">
+    //             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    //                 <circle class="stroke" cx="60" cy="60" r="50" />
+    //             </svg>
+    //         </div>
+    //     </div>
+    
+    
+    // </div>
+    
+    // </div>
+
   );
 };
 
