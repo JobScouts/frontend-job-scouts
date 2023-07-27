@@ -1,41 +1,24 @@
-/* .mainDiv{
-  display: flex;
-  background-color: red;
-  flex-wrap: wrap;
-} */
 div .con {
   display: flex;
-  /* height: 2000px; */
-  width: 1400px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   flex-wrap: wrap;
-  /* align-items: stretch; */
-  /* justify-content: space-around; */
-  /* align-content: space-around; */
+  align-items: stretch;
+  justify-content: space-around;
+  align-content: space-around;
 }
 
 .con .card {
-  /* display: flex;
-  max-height: 480px;
-  width: 400px;
-  background-color: #4400cc;
-  border-radius: 60px;
-  box-shadow: -1rem 0 3rem #000;
-  margin: 5px 10px;
-  transition: 0.4s ease-out;
-  position: relative;
-  left: 10px; */
 
-  /* display: flex; */
   height: 500px;
-  width: 400px;
-  background-color: #275a23;
+  width: 300px;
   border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000;
-/*   margin-left: -50px; */
+  box-shadow: -1rem 0 3rem #000000;
   transition: 0.4s ease-out;
-  /* position: relative; */
   left: 0px;
+  background-color: #8e8e8e;
+  /* background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgb(113, 110, 110) 0%, rgb(96, 212, 142) 35%, rgb(2, 54, 12) 100%); */
 }
 
 .card:hover {
@@ -43,7 +26,7 @@ div .con {
   transition: 0.4s ease-out;
 }
 
-.card:hover ~ .card {
+.card:hover~.card {
   position: relative;
   left: 50px;
   transition: 0.4s ease-out;
@@ -57,12 +40,24 @@ div .con {
   top: 230px;
 }
 
+.Maintitle{
+
+  text-align: center;
+  align-content: center;
+  color: #006c67;
+  font-weight: 500;
+  position: absolute;
+  /* left: 20px; */
+  top: 230px;
+
+}
+
 .bar {
   position: absolute;
   top: 220px;
   left: 20px;
   height: 5px;
-  width: 350px;
+  width: 250px;
 }
 
 .emptybar {
@@ -78,12 +73,12 @@ div .con {
   width: 0px;
   height: 100%;
   background: rgb(0, 183, 255);
-  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgb(29, 237, 32) 65%, rgb(219, 12, 12) 100%);
+  background: linear-gradient(90deg, rgba(0, 154, 217, 1) 0%, rgb(29, 237, 32) 65%, rgb(219, 12, 12) 100%);
   transition: 0.6s ease-out;
 }
 
 .card:hover .filledbar {
-  width: 350px;
+  width: 250px;
   transition: 0.4s ease-out;
 }
 
@@ -109,29 +104,29 @@ svg {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
 }
-.compImg{
-  height:200px;
-  width:200px;
-  background-color:rgb(116, 94, 227);
-  border-radius:50%;
-  position: absolute;
-  left: -45px;
-  top: -140px;
 
+.compImg {
+  height: 215px;
+  width: 250px;
+  background-color: rgb(255, 255, 255);
+  /* border-radius: 30%; */
+  position: relative;
+  left: -60px;
+  top: -150px;
 }
 
 /* Btn */
 
 .button {
   display: inline-block;
-  border-radius: 4px;
-  background-color: #478042;
+  border-radius: calc(24px);
+  background-color: #37593e;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
-  padding: 10px;
-  width: 150px;
+  padding: 2px 5px;
+  width: 110px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
