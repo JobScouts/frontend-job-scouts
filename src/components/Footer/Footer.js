@@ -5,31 +5,53 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <h3>Company</h3>
-        <ul className="footer-links">
-          <li><a href="/About" style={{position:'relative',left: '20px'}}>About Us </a></li>
-        </ul>
-      </div>
-      
-      <div className="footer-content">
-        <h3>Contact</h3>
-        <ul className="footer-links">
-          <li><a href="/help">Help Center</a></li>
-          <li><a href="/Contact Us">Contact Us</a></li>
-        </ul>
-        <ul className="social-links">
-          <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} size="lg" className="facebook-icon" /></a></li>
-          <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter} size="lg" className="twitter-icon" /></a></li>
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} size="lg" className="instagram-icon" /></a></li>
-          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} size="lg" className="linkedin-icon" /></a></li>
-          <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faYoutube} size="lg" className="youtube-icon" /></a></li>
-        </ul>
-      </div>
-      <div className="footer-content">
-        <h3 style={{left:"15px", textAlign:'center'}}>Premium</h3>
-        <p style={{left: '10px', textAlign:'center'}}>Premium is not available </p>
+    <footer className='footer-16371'>
+      <div className='container'>
+        <div className='row justify-content-center'>
+          <div className='col-md-9 text-center'>
+            <div className="footer-site-logo mb-4">
+              <a href='/'>JobScouts</a>
+            </div>
+            <ul className='list-unstyled nav-links mb-4'>
+              <li>
+                <a href='/'>Home</a>
+              </li>
+              <li>
+                <a href='/AboutUs'>AboutUs</a>
+              </li>
+            </ul>
+            <div className="stay-in-touch mb-4">
+              <h3 style={{color:'#FFFF'}}>Stay in touch</h3>
+              <ul className="social-links">
+                <li>
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faFacebook} size="lg" className="facebook-icon" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faTwitter} size="lg" className="twitter-icon" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faInstagram} size="lg" className="instagram-icon" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} size="lg" className="linkedin-icon" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faYoutube} size="lg" className="youtube-icon" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
