@@ -89,14 +89,14 @@ body {
 .right{
     width: 20px;
     position: relative;
-    left: 150px;
+    /* left: 150px; */
     bottom: 33px;
 }
 .search-icon {
    width: 610px;
    height: 500px;
-   margin-top: 50px;
-   margin-right: 122px;
+   margin-top: 32px;
+   margin-right: -74px;
 }
 
 
