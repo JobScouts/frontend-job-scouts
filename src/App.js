@@ -16,10 +16,7 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path='/UserProfile' element={<UserProfile/>}/>
         <Route path='/SavedJob' element={<SavedCard/>}/> 
-        {/* <Route path='/' element={<CustomCard/>}/>  */}
       </Routes>
-      {/* <UpdateComponent/> */}
-      {/* <Test/> */}
       <Footer/>
     </div>
   );
