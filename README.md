@@ -1,3 +1,4 @@
+
 # Project Name : JobScouts
 # Team Member : 
                 1. Mohammad Samara
@@ -35,3 +36,7 @@ Initial release
     - At first, we fetched all the jobs from API and enabled the search functionality, allowing the user to search for new job based on the JobTitle or location or both of them.
     - Then, we sent data from the API to the custom card component as props and applied a map function to display specific data on these cards
 > 
+
+## Deployed Link
+https://clever-starburst-91776f.netlify.app/
+

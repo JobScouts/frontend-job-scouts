@@ -1,12 +1,9 @@
-import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import Company from "../Assest/company.jpg";
 import "./Details.css";
 
 const Details = ({ job, handleCloseModal }) => {
-  const [show, setShow] = useState(false);
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) : text;
   };
@@ -33,7 +30,7 @@ const Details = ({ job, handleCloseModal }) => {
               <hr className="centeredHr" />
             </div>
             <p> {truncatedJobDescription === "" ? "Description Not Available ! ": truncatedJobDescription} </p>
-            <a href={job.employer_website} className="ModaleLinke">Our WebSite <i class="fa-solid fa-arrow-right"></i></a>
+            <a href={job.employer_website} className="ModaleLinke" target="_blank" rel="noreferrer">Our WebSite <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </Modal.Body>
         <Modal.Footer>

@@ -1,42 +1,77 @@
-.about-jobscouts {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+section.about-jobscouts {
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 40px 150px;
 }
 
-.about-jobscouts h2 {
-  font-size: 2.5rem;
-  margin-top: 5%;
-  font-weight: bold;
-  color: #3e9175;
+.about-jobscouts h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-align: center;
-  margin-bottom: 30px;
+  color: #006c67;
 }
 
-.about-jobscouts p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #726f6f;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 20px;
+.about-jobscouts h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #006c67;
 }
 
-.card-container {
+.about-jobscouts p{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  text-align-last: auto;
+  text-align:left;
+  font-size: medium;
+  padding-top: 5%;
+  padding: auto;;
+  margin: auto;
+  line-height: 2;
+  font-style: oblique;
+}
+
+.about-jobscouts button{
   display: flex;
-  justify-content: space-between; 
-  margin-top: 30px;
-  gap: 10px !important;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 30px;
+}
+
+.title-team{
+  text-align: center;
+  font-size:large;
+  gap:auto;
+  color: #0e432a;
+  
+}
+
+
+.title-team h1{
+  font-size: 400%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+div.card-container-about {
+  
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 90px !important;
+  padding-bottom: 5%;
+  justify-self: unset;
+  width: 100%;
+  padding: 10px 40px;
+  
+}
+
+.card-container h1 {
+  font-family: "Poppins", Arial, sans-serif;
+  text-align: center;
+  text-decoration: solid;
 
 }
 
-.card {
+.AboutcardImage{
   width: calc(20% - 20px);
   max-width: 300px;
-  margin: 5px;
+  margin: 500px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -53,10 +88,11 @@
   object-fit: cover !important;
   border-radius: 8px 8px 0 0;
 }
+
 .card .card-title {
   font-size: 24px;
   font-weight: bold;
-  color: #11613c;
+  color: #0e432a;
   text-align: center;
 }
 

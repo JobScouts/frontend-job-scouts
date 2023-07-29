@@ -2,7 +2,15 @@
 .container {
     display: flex;
     justify-content: space-between;
+    gap: 20px; 
+    margin:100px;
+  }
+
+  .mycontup{
+    display: flex;
+    justify-content: space-between;
     gap: 20px;
+    margin-bottom: 100px;
   }
   
   .item {

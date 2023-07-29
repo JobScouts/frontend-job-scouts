@@ -4,30 +4,25 @@ import "./CustomCard.css";
 import Details from "../Details/Details";
 import { useAuth0 } from "@auth0/auth0-react";
 import Company from "../Assest/company.jpg";
+import { error } from "jquery";
 
 const CustomCard = (props) => {
   let data = props.data;
   const { user, isAuthenticated } = useAuth0();
-  const [savedJob, setSavedJob] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const [showAlert, setShowAlert] = useState(true);
+  const [savedJobs, setSavedJobs] = useState([]);
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertVariant, setAlertVariant] = useState('success');
 
   useEffect(() => {
-    if (isAuthenticated) {
-      async function fetchSavedJobs() {
-        const url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
-        try {
-          let response = await fetch(url);
-          let receivedData = await response.json();
-          setSavedJob(receivedData);
-        } catch (error) {
-          console.log("Error fetching saved jobs:", error.message);
-        }
-      }
-      fetchSavedJobs();
+    // Fetch the user's saved jobs if the user is authenticated
+    if (isAuthenticated && user && user.sub) {
+      fetchUserSavedJobs();
     }
-  }, [isAuthenticated]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchUserSavedJobs]);
 
   const handleShowModal = (job) => {
     setSelectedJob(job);
@@ -39,15 +34,33 @@ const CustomCard = (props) => {
     setShowModal(false);
   };
 
-  const handleSaveJob = async (obj) => {
-    if (isAuthenticated) {
-      const jobExists = savedJob.some(
-        (savedJob) => savedJob.sub === user.sub && savedJob.job_title === obj.job_title
-      );
+  async function fetchUserSavedJobs() {
+    try {
+      const url = `${process.env.REACT_APP_SERVER_URL}/jobs/allSavedJob`;
+      const response = await fetch(url);
+      const mydata = await response.json();
+      setSavedJobs(mydata);
+    } catch (error) {
+      console.log("Error fetching user's saved jobs:", error.message);
+      setAlertMessage('Error: Unable to fetch saved jobs. Line 44');
+      setAlertVariant('danger');
+    }
+  }
 
-      if (jobExists) {
-        alert("This job is already saved to your profile.");
-      } else {
+
+  const userSavedJobs = isAuthenticated && user && user.sub ? savedJobs.filter((job) => job.sub === user.sub) : [];
+
+  async function handleSaveJob(obj) {
+    if (isAuthenticated) {
+      const jobId = obj.job_id;
+
+      if (userSavedJobs.some((job) => job.job_id === jobId)) {
+        // alert("You have already saved this job.");
+        setAlertMessage("You have already saved this job.");
+        setAlertVariant('warning');
+      }
+
+      else {
         let url = `${process.env.REACT_APP_SERVER_URL}/jobs`;
         const jobData = {
           job_title: obj.job_title,
@@ -57,7 +70,12 @@ const CustomCard = (props) => {
           job_highlights: obj.job_highlights,
           job_apply_link: obj.job_apply_link,
           sub: user.sub,
+          job_city: obj.job_city,
+          job_country: obj.job_country,
+          job_id: obj.job_id,
+          job_posted_at_datetime_utc: (obj.job_posted_at_datetime_utc).substring(0, 10)
         };
+
         try {
           let response = await fetch(url, {
             method: "POST",
@@ -66,25 +84,45 @@ const CustomCard = (props) => {
           });
 
           if (response.status === 201) {
-            alert("Added successfully");
+            //alert("Added successfully");
+            setAlertMessage('Job Added successfully.');
+            setAlertVariant('success');
+
           } else {
-            console.log("Error:", response.statusText);
-            alert("Failed to add Job");
+            console.log("Error:", error, error.message);
+            // alert("Failed to add Job else");
+            setAlertMessage('Failed to add Job.');
+            setAlertVariant('danger');
           }
         } catch (error) {
           console.log("Error:", error.message);
-          alert("Failed to add Job");
+          // alert("Failed to add Job catch");
+          setAlertMessage('Something Went Wrong !! Line 99');
+          setAlertVariant('danger');
         }
       }
-    } else {
-      alert("You have to login to add jobs to your profile");
     }
-  };
+    // IF !isAuthenticated
+    else {
+      // alert("You have to login to add jobs to your profile");
+      setAlertMessage('You have to login to add jobs to your profile');
+      setAlertVariant('warning');
+    }
+  }
 
-  const userSavedJobs = isAuthenticated && user && user.sub ? savedJob.filter((job) => job.sub === user.sub) : [];
+
+
 
   return (
     <div>
+      {alertMessage && (
+        <div className="fixed-alert">
+          <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>
+            {alertMessage}
+          </Alert>
+        </div>
+      )}
+
       {data.length === 0 ? (
         <div className="alert-container">
           <Alert
@@ -101,22 +139,33 @@ const CustomCard = (props) => {
       ) : (
         <div className="con">
           {data.map((obj, i) => (
+
             <div className="card" key={i}>
-              <h2 className="Maintitle" style={{width:"100%"}}>{obj.employer_name}</h2>
-              <h5 className="title" style={{ top: "270px" }}>{obj.job_city}</h5>
-              <h5 className="title" style={{ top: "310px" }}>{obj.job_country}</h5>
+
+              {/* <div className="divafterbar"> */}
+
+
+              <h2 className="Maintitle" style={{ height: "60px", width: "100%", whiteSpace: "normal", wordWrap: "break-word" }}>{obj.employer_name}</h2>
+              <h5 className="title" style={{ top: "270px" }}>{obj.job_city || "Not specified"} , {obj.job_country || "Not specified"} </h5>
+              {/* <h5 className="title" style={{ top: "310px" }}>{obj.job_country || "Not specified"}</h5> */}
               <h5 className="title_job" style={{ top: "350px" }}>{obj.job_title}</h5>
+
+
+              <button className="button" onClick={() => handleSaveJob(obj)}><span>Save</span></button>
+              <button className="button" style={{ left: "230px" }} onClick={() => handleShowModal(obj)}><span>More</span></button>
+
+              {/* </div> */}
+
               <div className="bar">
                 <div className="emptybar"></div>
                 <div className="filledbar"></div>
               </div>
               <div className="circle">
-                <circle className="stroke" cx="60" cy="60" r="50">
-                  <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
-                </circle>
+                {/* <circle className="stroke" cx="60" cy="60" r="50"> */}
+                <img className="compImg" src={obj.employer_logo === "" ? Company : obj.employer_logo} alt="employer_logo" />
+                {/* </circle> */}
               </div>
-              <button className="button" onClick={() => handleSaveJob(obj)}><span>Save</span></button>
-              <button className="button" style={{ left: "200px" }} onClick={() => handleShowModal(obj)}><span>More</span></button>
+
             </div>
           ))}
         </div>
