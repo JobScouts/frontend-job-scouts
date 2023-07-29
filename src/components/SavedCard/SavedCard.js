@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import company from '../Assest/company.jpg';
 import './SavedCard.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Oops from "../Assest/Oops.avif";
@@ -17,11 +15,11 @@ const SavedCard = () => {
   const [alertMessage, setAlertMessage] = useState(null);
   const [alertVariant, setAlertVariant] = useState('success');
 
-  useEffect(() => {
-    if (us) {
-      handleSavedJobs();
-    }
-  }, [us]);
+  // useEffect(() => {
+  //   if (us) {
+  //     handleSavedJobs();
+  //   }
+  // }, []);
 
   async function handleSavedJobs() {
     const url = `${process.env.REACT_APP_SERVER_URL}/jobs?sub=${us}`;
@@ -66,13 +64,11 @@ const SavedCard = () => {
     }
   }
 
-  // useEffect(() => {
-  //   handleSavedJobs();
-  // }, []);
+  useEffect(() => {
+    handleSavedJobs();
+  }, []);
 
-  const userSavedJobs = isAuthenticated && user && user.sub
-  ? savedJob.filter((job) => job.sub === user.sub)
-  : [];
+  const userSavedJobs = isAuthenticated && user && user.sub? savedJob.filter((job) => job.sub === user.sub) : [];
 
 
   return (
@@ -109,10 +105,12 @@ const SavedCard = () => {
       <div class="postcard__bar"></div>
       <div class="postcard__preview-txt">{job.job_highlights}</div>
       <ul class="postcard__tagbox">
-        <li class="tag__item"><i class="fa-solid fa-trash-can"></i><button style={{background:"none" , border:"none"}}>Un-Save</button></li>
-        <li class="tag__item"><i class="fa-solid fa-arrow-right"></i><button style={{background:"none" , border:"none"}}>Apply</button></li>
+        {/* <li class="tag__item"><i class="fa-solid fa-trash-can"></i><button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button></li> */}
+        {/* <li class="tag__item"><i class="fa-solid fa-arrow-right"></i><button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button></li> */}
       </ul>
     </div>
+    <button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button>
+    <button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button>
   </article>
 
 </section>

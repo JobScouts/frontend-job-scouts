@@ -68,7 +68,8 @@ function Home() {
   }
   return (
     <div>
-      <Container>
+
+      <Container className="heroImage" style={{width:"100%"}}>
         <div className="left">
           <h1>Discover Your Perfect Job Opportunity :</h1>
           <Row className="justify-content-center align-items-center mt-5">
@@ -99,11 +100,11 @@ function Home() {
             </Col>
           </Row>
         </div>
-        <div className="right">
+        {/* <div className="right">
           <Col xs={12} md={6} className="d-flex justify-content-end">
             <img src={search} alt="Search Icon" className="search-icon" />
           </Col>
-        </div>
+        </div> */}
 
 
       </Container>
