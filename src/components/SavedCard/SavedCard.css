@@ -79,18 +79,18 @@
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
-
+  align-items: center;
+  justify-content: center;
 }
 
 .samara{
   width: 50%;
   display: flex;
   justify-content: center;
-  
 }
 
 
-  @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css");
 body {
@@ -139,6 +139,7 @@ a:hover {
 }
 .postcard.light {
   background-color: #e1e5ea;
+  height: 250px;
 }
 .postcard .t-dark {
   color: #18151f;
@@ -160,7 +161,7 @@ a:hover {
   height: auto;
   width: 150px; 
   object-fit: cover;
-  border-radius: 50%; 
+  /* border-radius: 50%;  */
   margin-left: 20px;
 }
 .postcard .postcard__text {
@@ -184,12 +185,9 @@ a:hover {
   height: 100%;
 }
 .postcard .postcard__tagbox {
-  display: flex;
-  flex-flow: row wrap;
   font-size: 14px;
   margin: 20px 0 0 0;
   padding: 0;
-  justify-content: center;
 }
 .postcard .postcard__tagbox .tag__item {
   display: inline-block;
@@ -339,32 +337,6 @@ a:hover {
 }
 .yellow:nth-child(2n):before {
   background-image: linear-gradient(30deg, rgba(189, 187, 73, 0.1), transparent 50%);
-}
-@media screen and (min-width: 769px) {
-  .green:before {
-    /* background-image: linear-gradient(-80deg, rgba(121, 221, 9, 0.1), transparent 50%); */
-  }
-  .green:nth-child(2n):before {
-    /* background-image: linear-gradient(80deg, rgba(121, 221, 9, 0.1), transparent 50%); */
-  }
-  .blue:before {
-    /* background-image: linear-gradient(-80deg, rgba(0, 118, 189, 0.1), transparent 50%); */
-  }
-  .blue:nth-child(2n):before {
-    /* background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%); */
-  }
-  .red:before {
-    /* background-image: linear-gradient(-80deg, rgba(189, 21, 11, 0.1), transparent 50%); */
-  }
-  .red:nth-child(2n):before {
-    /* background-image: linear-gradient(80deg, rgba(189, 21, 11, 0.1), transparent 50%); */
-  }
-  .yellow:before {
-    /* background-image: linear-gradient(-80deg, rgba(189, 187, 73, 0.1), transparent 50%); */
-  }
-  .yellow:nth-child(2n):before {
-    /* background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.1), transparent 50%); */
-  }
 }
 /* .no-jobs-container {
   display: flex;

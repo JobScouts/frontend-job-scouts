@@ -21,21 +21,6 @@ const CustomCard = (props) => {
     }
   }, [fetchUserSavedJobs]);
 
-
-
-  async function fetchUserSavedJobs() {
-    try {
-      const url = `${process.env.REACT_APP_SERVER_URL}/jobs?sub=${user.sub}`;
-      const response = await fetch(url);
-      const mydata = await response.json();
-      setSavedJobs(mydata);
-    } catch (error) {
-      console.log("Error fetching user's saved jobs:", error.message);
-    }
-  }
-
-
-
   const handleShowModal = (job) => {
     setSelectedJob(job);
     setShowModal(true);
@@ -46,12 +31,25 @@ const CustomCard = (props) => {
     setShowModal(false);
   };
 
+  async function fetchUserSavedJobs() {
+    try {
+      const url = `${process.env.REACT_APP_SERVER_URL}/jobs/allSavedJob`;
+      const response = await fetch(url);
+      const mydata = await response.json();
+      setSavedJobs(mydata);
+    } catch (error) {
+      console.log("Error fetching user's saved jobs:", error.message);
+    }
+  }
+
+
+  const userSavedJobs = isAuthenticated && user && user.sub ? savedJobs.filter((job) => job.sub === user.sub) : [];
 
   async function handleSaveJob(obj) {
     if (isAuthenticated) {
       const jobId = obj.job_id;
 
-      if (savedJobs.some((job) => job.job_id === jobId)) {
+      if (userSavedJobs.some((job) => job.job_id === jobId)) {
         alert("You have already saved this job.");
       }
 
@@ -67,8 +65,10 @@ const CustomCard = (props) => {
           sub: user.sub,
           job_city: obj.job_city,
           job_country: obj.job_country,
-          job_id: obj.job_id
+          job_id: obj.job_id,
+          job_posted_at_datetime_utc : (obj.job_posted_at_datetime_utc).substring(0, 10)
         };
+        //.substring(0, 10);
         try {
           let response = await fetch(url, {
             method: "POST",
@@ -95,7 +95,7 @@ const CustomCard = (props) => {
   }
 
 
-  // const userSavedJobs = isAuthenticated && user && user.sub ? savedJob.filter((job) => job.sub === user.sub) : [];
+
 
   return (
     <div>

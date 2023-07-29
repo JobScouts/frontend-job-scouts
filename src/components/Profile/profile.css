@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(118, 204, 165, 0.232)
+  /* background-color: rgba(118, 204, 165, 0.232) */
 }
 
 .padding {
@@ -32,7 +32,7 @@ body {
 
 .bg-c-lite-green {
       background: -webkit-gradient(linear, left top, right top, from(#000000), to(#000000));
-  background: linear-gradient(to right, #000000, #78d489);
+      background: linear-gradient(to right, #395251, #006c67);
 }
 
 .user-profile {
