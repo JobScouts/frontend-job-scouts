@@ -7,7 +7,7 @@ const Footer = () => {
     // <div className="myFooter d-flex align-items-center" style={{ minHeight: "10vh" , miwidth:"100%" }}>
       <footer className="bg-dark text-center text-white" style={{ bottom:"0" , height: "100%"}}>
         <div className="container p-0 pb-0">
-          <section className="mb-4 d-flex justify-content-center">
+          <section  className="mb-0 d-flex justify-content-center">
             <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#3b5998" }} href="#!" role="button">
               <FontAwesomeIcon icon={faFacebookF} />
             </a>
@@ -28,20 +28,18 @@ const Footer = () => {
             </a>
           </section>
           
-          
-          <div style={{display:"flex" ,flexDirection:"column" , alignItems:"center" , alignContent:"center" , justifyContent:"center"}} >
-        <h5 class="text-uppercase">Footer text</h5>
+          <div style={{display:"flex" ,flexFlow:"column", paddingRight:"48px" , alignItems:"center" , justifyContent:"center" , paddingTop:"22px"}} >
+        <h5 class="text-uppercase">JobScouts</h5>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-          molestias.
+          <a href="/About" style={{textDecoration:"none" , color:"#aba3a3"}}> About Us </a>
         </p>
       </div>
         
         
         </div>
         <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-          © 2020 Copyright :
-          <a className="text-white" href="#!" style={{textDecoration : "none"}}> SearchJob.com</a>
+          © 2023 Copyright :
+          <a className="text-white" href="#!" style={{textDecoration : "none"}}> JobScouts.com</a>
         </div>
       </footer>
     // </div>
