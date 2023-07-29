@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import company from '../Assest/company.jpg';
 import './SavedCard.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Oops from "../Assest/Oops.avif";
@@ -8,18 +10,18 @@ import Alert from 'react-bootstrap/Alert';
 
 const SavedCard = () => {
   const { user, isAuthenticated } = useAuth0();
-  const us = user?.sub || null; 
+  const us = user?.sub || null;
   console.log(us);
 
   const [savedJob, setSavedJob] = useState([]);
   const [alertMessage, setAlertMessage] = useState(null);
   const [alertVariant, setAlertVariant] = useState('success');
 
-  // useEffect(() => {
-  //   if (us) {
-  //     handleSavedJobs();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (us) {
+      handleSavedJobs();
+    }
+  }, [us]);
 
   async function handleSavedJobs() {
     const url = `${process.env.REACT_APP_SERVER_URL}/jobs?sub=${us}`;
@@ -64,15 +66,17 @@ const SavedCard = () => {
     }
   }
 
-  useEffect(() => {
-    handleSavedJobs();
-  }, []);
+  // useEffect(() => {
+  //   handleSavedJobs();
+  // }, []);
 
-  const userSavedJobs = isAuthenticated && user && user.sub? savedJob.filter((job) => job.sub === user.sub) : [];
+  const userSavedJobs = isAuthenticated && user && user.sub
+    ? savedJob.filter((job) => job.sub === user.sub)
+    : [];
 
 
   return (
-    <div className="allJobSaved">
+    <div className="center">
 
       {alertMessage && (
         <div className="fixed-alert">
@@ -84,43 +88,37 @@ const SavedCard = () => {
 
       {userSavedJobs.length > 0 ? (
         userSavedJobs.map((job) => (
+          <Card key={job.id} className="card">
+            <div className="samara">
+              <section class="light">
+                {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
+                <article class="postcard light blue">
+                  {/* <a class="postcard__img_link" href="#"> */}
+                  <img class="postcard__img" src={job.employer_logo} alt="Company_Image" />
+                  {/* </a> */}
+                  <div class="postcard__text t-dark">
+                    <h1 class="postcard__title blue"><a href="#">{job.job_title}</a></h1>
+                    <div class="postcard__subtitle small">
+                      <time datetime="2020-05-25 12:00:00">
+                        <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                      </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">{job.job_highlights}</div>
+                    <ul class="postcard__tagbox">
+                      <li class="tag__item"><i class="fa-solid fa-trash-can"></i><button style={{background:"none" , border:"none"}} onClick={() =>handleUnSaveJob(job.id)}>Un-Save</button></li>
+                      <li class="tag__item"><i class="fa-solid fa-arrow-right"></i><button style={{background:"none" , border:"none"}} onClick={() =>handleApplyToJob(job.job_apply_link)}>Apply</button></li>
+                    </ul>
+                  </div>
+                  {/* <button style={{ background: "none", border: "none" }} onClick={() => handleUnSaveJob(job.id)}>Un-Save</button>
+                  <button style={{ background: "none", border: "none" }} onClick={() => handleApplyToJob(job.job_apply_link)}>Apply</button> */}
+                </article>
 
-/////// awe code
-<div className="samara">
+              </section>
 
-<section class="light">
-
-  {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
-  <article class="postcard light blue">
-    {/* <a class="postcard__img_link" href="#"> */}
-      <img class="postcard__img" src={job.employer_logo} alt="Company_Image" />
-    {/* </a> */}
-    <div class="postcard__text t-dark">
-      <h1 class="postcard__title blue"><a href="#">{job.job_title}</a></h1>
-      <div class="postcard__subtitle small">
-        <time datetime="2020-05-25 12:00:00">
-          <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-        </time>
-      </div>
-      <div class="postcard__bar"></div>
-      <div class="postcard__preview-txt">{job.job_highlights}</div>
-      <ul class="postcard__tagbox">
-        {/* <li class="tag__item"><i class="fa-solid fa-trash-can"></i><button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button></li> */}
-        {/* <li class="tag__item"><i class="fa-solid fa-arrow-right"></i><button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button></li> */}
-      </ul>
-    </div>
-    <button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button>
-    <button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button>
-  </article>
-
-</section>
-
-</div>
-))
-
-
-
-        ////// aws code
+            </div>
+          </Card>
+        ))
       ) : (
         <div className="no-jobs-container">
           <img
@@ -147,3 +145,37 @@ const SavedCard = () => {
   );
 };
 export default SavedCard;
+
+
+
+
+// {/* <div className="samara">
+
+// <section class="light">
+
+//     {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
+//   <article class="postcard light blue">
+//     {/* <a class="postcard__img_link" href="#"> */}
+//       <img class="postcard__img" src={job.employer_logo} alt="Company_Image" />
+//     {/* </a> */}
+//     <div class="postcard__text t-dark">
+//       <h1 class="postcard__title blue"><a href="#">{job.job_title}</a></h1>
+//       <div class="postcard__subtitle small">
+//         <time datetime="2020-05-25 12:00:00">
+//           <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+//         </time>
+//       </div>
+//       <div class="postcard__bar"></div>
+//       <div class="postcard__preview-txt">{job.job_highlights}</div>
+//       <ul class="postcard__tagbox">
+//         {/* <li class="tag__item"><i class="fa-solid fa-trash-can"></i><button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button></li> */}
+//         {/* <li class="tag__item"><i class="fa-solid fa-arrow-right"></i><button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button></li> */}
+//       </ul>
+//     </div>
+//     <button style={{background:"none" , border:"none"}} onClick={handleUnSaveJob(job.id)}>Un-Save</button>
+//     <button style={{background:"none" , border:"none"}} onClick={handleApplyToJob(job.job_apply_link)}>Apply</button>
+//   </article>
+
+// </section>
+
+// </div> */}
