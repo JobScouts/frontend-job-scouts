@@ -13,6 +13,8 @@ const CustomCard = (props) => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [showAlert, setShowAlert] = useState(true);
   const [savedJobs, setSavedJobs] = useState([]);
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertVariant, setAlertVariant] = useState('success');
 
   useEffect(() => {
     // Fetch the user's saved jobs if the user is authenticated
@@ -39,6 +41,8 @@ const CustomCard = (props) => {
       setSavedJobs(mydata);
     } catch (error) {
       console.log("Error fetching user's saved jobs:", error.message);
+      setAlertMessage('Error: Unable to fetch saved jobs. Line 44');
+      setAlertVariant('danger');
     }
   }
 
@@ -50,7 +54,9 @@ const CustomCard = (props) => {
       const jobId = obj.job_id;
 
       if (userSavedJobs.some((job) => job.job_id === jobId)) {
-        alert("You have already saved this job.");
+        // alert("You have already saved this job.");
+        setAlertMessage("You have already saved this job.");
+        setAlertVariant('warning');
       }
 
       else {
@@ -66,9 +72,9 @@ const CustomCard = (props) => {
           job_city: obj.job_city,
           job_country: obj.job_country,
           job_id: obj.job_id,
-          job_posted_at_datetime_utc : (obj.job_posted_at_datetime_utc).substring(0, 10)
+          job_posted_at_datetime_utc: (obj.job_posted_at_datetime_utc).substring(0, 10)
         };
-        //.substring(0, 10);
+
         try {
           let response = await fetch(url, {
             method: "POST",
@@ -77,21 +83,30 @@ const CustomCard = (props) => {
           });
 
           if (response.status === 201) {
-            alert("Added successfully");
+            //alert("Added successfully");
+            setAlertMessage('Job Added successfully.');
+            setAlertVariant('success');
+
           } else {
-            console.log("Error:", error , error.message);
-            alert("Failed to add Job else");
+            console.log("Error:", error, error.message);
+            // alert("Failed to add Job else");
+            setAlertMessage('Failed to add Job.');
+            setAlertVariant('danger');
           }
         } catch (error) {
           console.log("Error:", error.message);
-          alert("Failed to add Job catch");
+          // alert("Failed to add Job catch");
+          setAlertMessage('Something Went Wrong !! Line 99');
+          setAlertVariant('danger');
         }
-      } 
-    }
-      // IF !isAuthenticated
-      else {
-        alert("You have to login to add jobs to your profile");
       }
+    }
+    // IF !isAuthenticated
+    else {
+      // alert("You have to login to add jobs to your profile");
+      setAlertMessage('You have to login to add jobs to your profile');
+      setAlertVariant('warning');
+    }
   }
 
 
@@ -99,6 +114,14 @@ const CustomCard = (props) => {
 
   return (
     <div>
+      {alertMessage && (
+        <div className="fixed-alert">
+          <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>
+            {alertMessage}
+          </Alert>
+        </div>
+      )}
+
       {data.length === 0 ? (
         <div className="alert-container">
           <Alert

@@ -9,22 +9,23 @@ body {
 
 .heroImage {
    background-image: url('../Assest/SECheroImagee.png');
-   height: 500px;
+   /* height: 500px; */
    /* You must set a specified height */
    background-repeat: no-repeat;
    /* Do not repeat the image */
    background-size: contain;
    /* Resize the background image to cover the entire container */
-   /* block-size: fit-content; */
-   /* width: fit-content; */
+   /* block-size: fit-content;
+   width: fit-content; */
    opacity: 0.85;
+
 }
 
 .heroImage.container{
    margin-top: 100px;
-   border-radius: 20px;
+   border-radius: 10px;
    height: 400px;
-   margin: 0px;
+   margin-top: 40px;
    padding: 0px;
    width: 100%;
 }
@@ -65,7 +66,7 @@ body {
    font-size: 16px;
    padding: 0.5rem 1rem 0.5rem 3rem;
    border: 20% solid #f4f4f5;
-   background: #f4f4f5 url('../Assest/searc.png') no-repeat 1rem center;
+   background: #ffffff url('../Assest/searc.png') no-repeat 1rem center;
    background-size: 1.5rem;
    color: #333;
    margin: 20px;
@@ -77,8 +78,8 @@ body {
    border-radius: calc(24px) !important;
    font-size: 16px;
    padding: 0.5rem 1rem 0.5rem 3rem;
-   border: 20% solid #f4f4f5;
-   background: #f4f4f5 url('../Assest/marker.png') no-repeat 1rem center;
+   border: 20% solid #efeeee;
+   background: #ffffff url('../Assest/marker.png') no-repeat 1rem center;
    background-size: 1.5rem;
    color: #333;
    margin: 20px;
