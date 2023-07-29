@@ -15,7 +15,7 @@ const About = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <div>
+    <div className='about'>
       <br></br>
       <section className="about-jobscouts">
         <h1>Welcome to JobScouts - Your Ultimate Job Search Companion!</h1>
@@ -43,9 +43,11 @@ const About = () => {
 
 
 
-        <div className="card-container">
+        <div className="card-container-about">
+            
+            {/* 1 */}
 
-          <Card className="card">
+          <Card className="AboutcardImage">
             <Card.Img variant="top" src={MhmdS} className='imgc' />
             <Card.Body>
               <Card.Title>Mohamad Samara</Card.Title>
@@ -55,7 +57,8 @@ const About = () => {
             </Card.Body>
           </Card>
 
-          <Card className="card">
+            {/* 2 */}
+          <Card className="AboutcardImage">
             <Card.Img variant="top" src={Aws} className='imgc' />
             <Card.Body>
               <Card.Title>Aws Alomari</Card.Title>
@@ -65,7 +68,8 @@ const About = () => {
             </Card.Body>
           </Card>
 
-          <Card className="card">
+          {/* 3 */}
+          <Card className="AboutcardImage">
             <Card.Img variant="top" src={Farah} className='imgc' />
             <Card.Body>
               <Card.Title>Farah Elaydi</Card.Title>
@@ -75,7 +79,8 @@ const About = () => {
             </Card.Body>
           </Card>
 
-          <Card className="card">
+          {/* 4 */}
+          <Card className="AboutcardImage">
             <Card.Img variant="top" src={Mhamd} className='imgc' />
             <Card.Body>
               <Card.Title>Mohammad Mustafa</Card.Title>
@@ -85,7 +90,8 @@ const About = () => {
             </Card.Body>
           </Card>
 
-          <Card className="card">
+          {/* 5 */}
+          <Card className="AboutcardImage">
             <Card.Img variant="top" src={saif} className='imgc' />
             <Card.Body>
               <Card.Title>Saif Yahia</Card.Title>

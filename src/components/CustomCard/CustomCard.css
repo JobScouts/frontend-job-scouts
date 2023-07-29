@@ -1,73 +1,213 @@
-/* CustomCard.css */
-.title {
-  text-align: center;
+div .con {
+  /* display: flex; */
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  /* flex-wrap: wrap; */
+  align-items: stretch;
+  /* justify-content: space-around; */
+  align-content: center;
 }
 
-.location {
+.con {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around; /* OR Center to center the cards horizontally */
   align-items: center;
-  text-align: center;
-  margin-bottom: 10px;
+  align-content: center;
+  /* margin-bottom: 100px; */
+  padding: 0px 80px;
 }
 
-.location p {
-  margin: 0;
-}
-
-.job {
-  text-align: center;
-  font-weight: bolder;
-}
-
-.job span p {
-  display: inline-block;
-}
-
-.button-container {
+.con .card {
+  height: 460px;
+  width: 370px;
+  border-radius: 10px;
+  box-shadow: -1rem 0 1rem #a0a0a0;
+  transition: 0.4s ease-out;
+  margin: 20px 20px 100px 20px; /* Adjust the margin to add space between the cards */
+  background-image: linear-gradient(-30deg, rgba(87, 90, 87, 0.1), transparent 50%);
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  transition: 0.4s ease-out;
+  left: 10px;
+  /*
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+
+  */
 }
 
-.custom-button {
-  margin-right: 70px;
+
+.card:not(:first-child) {
+  margin-left: -50px;
 }
 
-.logo-container {
-  width: 100% !important;
-  height: 180px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
 }
 
-.logo {
-  max-width: 100% !important;
-  max-height: 100% !important;
+.card:hover~.card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
 }
 
-.btn {
-  background-color: #006c67 !important;
-  border-radius: calc(24px) !important;
-  border: 2px solid #006c67 !important;
-}
-
-.main {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  grid-gap: 20px;
-}
-.alert-container {
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.alert {
+.title_job {
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  position: absolute;
+  /* left: 20px; */
+  top: 270px; /* Adjust the top value to move it down slightly */
+  width: 100%;
   text-align: center;
 
 }
+.title {
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  position: absolute;
+  /* left: 120px; Adjust the left value to move it to the right */
+  top: 270px; /* Adjust the top value to move it down slightly */
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
 
+.Maintitle{
+  font-size: 20px;
+  white-space: nowrap;
+  text-align: center;
+  align-content: center;
+  color: #006c67;
+  font-weight: 700;
+  position: absolute;
+  top: 230px;
+  /* margin-bottom: 3px; */
+
+}
+
+.bar {
+  position: absolute;
+  top: 220px;
+  left: 20px;
+  height: 5px;
+  width: 340px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0, 183, 255);
+  background: linear-gradient(90deg, #eb871c 0%, #046f11 65%, #0dbdb3 100%);
+
+  transition: 0.6s ease-out;
+}
+
+.card:hover .filledbar {
+  width: 340px;
+  transition: 0.4s ease-out;
+}
+
+.circle {
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: rgb(166, 255, 0);
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #000000;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
+
+.compImg {
+  height: 200px;
+  width: 290px;
+  /* background-color: rgb(255, 255, 255); */
+  /* border-radius: 30%; */
+  position: relative;
+  left: -80px;
+  top: -140px;
+}
+
+/* Btn */
+
+.button {
+  display: inline-block;
+  border-radius: calc(24px);
+
+  background-color: #006c67;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+
+  padding: 2px 5px;
+  width: 110px;
+  transition: all 0.5s;
+  cursor: pointer;
+
+  margin: -15.5px;
+  bottom: 30px;
+  position: absolute;
+  left: 60px;
+  height: 40px;
+
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* .divafterbar{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  bottom: 0px;
+  position: absolute;
+} */

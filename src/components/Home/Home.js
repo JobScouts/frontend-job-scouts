@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import search from "../Assest/search.jpg";
-import Interview from "../Assest/interview.jpg";
-import Cv from "../Assest/ace.jpg";
-import Ace from "../Assest/new.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
-//import { BarLoader } from 'react-spinner-animated';
-import 'react-spinner-animated/dist/index.css'
+
+import "react-spinner-animated/dist/index.css";
+import Update from "../updte/UpdateComponent";
 
 import "./Home.css";
+
 function Home() {
   const [showCard, setShowCard] = useState(false);
   const [jobTitle, setJobTitle] = useState("");
@@ -17,6 +16,7 @@ function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const handleShowCards = () => {
     console.log("Job Title:", jobTitle);
     console.log("Location:", location);
@@ -44,133 +44,77 @@ function Home() {
     getِAllJobs();
   }, []);
   if (loading) {
-    return <div className="spinner-container">
-
-      <svg width="100%" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg" >
-        <g id="spinner">
-          <circle id="bottom" cx="138" cy="138" r="114" stroke="#121212" stroke-width="18" />
-          <circle id="upper" cx="138" cy="138" r="123" stroke="#00B894" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="373 100" />
-       </g>
-      </svg>
-   </div>
+    return (
+      <div className="spinner-container">
+        <div className="spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
   }
+
 
   if (error) {
     return <div>Error: {error}</div>;
   }
   return (
     <div>
-      <Container>
-        <h1 className="main-heading text-on-top">
-          Discover Your Perfect Job Opportunity :
-        </h1>
-        <Row className="justify-content-center align-items-center mt-5">
-          <Col xs={12} md={6} className="d-flex align-items-center">
-            <Form.Control
-              type="search"
-              placeholder="JobTitle"
-              aria-label="JobTitle"
-              className="form-control-custom form-control-left"
-              value={jobTitle}
-              onChange={(e) => setJobTitle(e.target.value)}
-            />
-            <Form.Control
-              type="search"
-              placeholder="Location"
-              aria-label="Location"
-              className="form-control-custom form-control-left"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-            <Button
-              variant="success"
-              className="search-button"
-              onClick={handleShowCards}
-            >
-              Search Jobs
-            </Button>
-          </Col>
+
+      <Container className="heroImage" style={{width:"100%"}}>
+        <div className="left">
+          <h1>Discover Your Perfect Job Opportunity :</h1>
+          <Row className="justify-content-center align-items-center mt-5">
+            <Col xs={12} md={6} className="d-flex align-items-center">
+              <Form.Control
+                type="search"
+                placeholder="JobTitle"
+                aria-label="JobTitle"
+                className="search-bar1"
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
+              <Form.Control
+                type="search"
+                placeholder="Location"
+                aria-label="Location"
+                className="search-bar2"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+              <Button
+                variant="success"
+                className="search-btn"
+                onClick={handleShowCards}
+              >
+                Search Jobs
+              </Button>
+            </Col>
+          </Row>
+        </div>
+        {/* <div className="right">
           <Col xs={12} md={6} className="d-flex justify-content-end">
             <img src={search} alt="Search Icon" className="search-icon" />
           </Col>
-        </Row>
+        </div> */}
 
-        {showCard && <CustomCard data={data} />}
+
       </Container>
+      {showCard && <CustomCard data={data} />}
 
-      <div className="additional-container">
-        <img
-          src={Interview}
-          alt="Search Icon"
-          className="additional-search-icon"
-        />
-        <span className="additional-content">
-          <h4>Chart Your Path to Interview Success</h4>
-          <p>
-            The job interview is probably the most important step you will take
-            in your job search journey. It's your best chance to show the hiring
-            manager that you’re the best person for their job.
-          </p>
-          <a
-            href="https://www.roberthalf.com.au/career-advice/interview"
-            target="_blank"
-            style={{ textDecoration: "none" }}
-            rel="noreferrer"
-          >
-            <Button variant="success" className="additional-search-button">
-              Ready to Shine
-            </Button>
-          </a>
-        </span>
 
-      </div>
-      <div className="second-container">
-        <span className="second-content">
-          <h4>Chart the course of your career with a compelling CV</h4>
-          <p>
-            investing time and effort into crafting a compelling CV can
-            significantly enhance your chances of success in the job market.
-            It's your gateway to opening doors to new opportunities and landing
-            that interview, where you can further demonstrate why you are the
-            best fit for the job.
-          </p>
-          <a
-            href="https://zety.com/blog/how-to-write-a-cv"
-            target="_blank"
-            style={{ textDecoration: "none" }}
-            rel="noreferrer"
-          >
-            <Button variant="success" className="second-search-button">
-              Preparing for the Big Day
-            </Button>
-          </a>
-        </span>
-        <img src={Cv} alt="Search Icon" className="second-search-icon" />
-      </div>
-      <div className="additional-container">
-        <img src={Ace} alt="Search Icon" className="additional-search-icon" />
-        <span className="additional-content">
-          <h4>Unlock success with standout steps</h4>
-          <p>
-            A new job can unlock a whole world of possibilities, but the
-            pressure to favorably present your skills, experience, and your
-            ability to make a good first impression can make any job search an
-            intimidating endeavor.
-          </p>
-          <a
-            href="https://www.roberthalf.com.au/career-advice/interview"
-            target="_blank"
-            style={{ textDecoration: "none" }}
-            rel="noreferrer"
-          >
-            <Button variant="success" className="additional-search-button">
-              19 Winning Steps
-            </Button>
-          </a>
-        </span>
-      </div>
+      <Update />
     </div>
   );
 }
+
 
 export default Home;

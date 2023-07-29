@@ -8,12 +8,15 @@
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.14.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.0",
+    "framer-motion": "^10.13.1",
+    "jquery": "^3.7.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
@@ -22,6 +25,7 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "react-spinner-animated": "^3.1.1",
+    "styled-components": "^6.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,7 +38,18 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "env": {
+      "browser": true
+    },
+    "plugins": [
+      "jquery"
+    ],
+    "rules": {
+      "jquery/no-ajax": 2,
+      "jquery/no-animate": 2,
+      "jquery/no-attr": 2
+    }
   },
   "browserslist": {
     "production": [
@@ -47,5 +62,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-jquery": "^1.5.1"
   }
 }

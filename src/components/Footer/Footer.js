@@ -1,37 +1,48 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import './Footer.css';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <h3>Company</h3>
-        <ul className="footer-links">
-          <li><a href="/About">About Us</a></li>
-        </ul>
+    // <div className="myFooter d-flex align-items-center" style={{ minHeight: "10vh" , miwidth:"100%" }}>
+      <footer className="bg-dark text-center text-white" style={{ bottom:"0" , height: "100%"}}>
+        <div className="container p-0 pb-0">
+          <section  className="mb-0 d-flex justify-content-center">
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#3b5998" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#55acee" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#dd4b39" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faGoogle} />
+            </a>
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#ac2bac" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#0082ca" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </a>
+            <a className="btn text-white btn-floating m-5" style={{ backgroundColor: "#333333" }} href="#!" role="button">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </section>
+          
+          <div style={{display:"flex" ,flexFlow:"column", paddingRight:"48px" , alignItems:"center" , justifyContent:"center" , paddingTop:"22px"}} >
+        <h5 class="text-uppercase">JobScouts</h5>
+        <p>
+          <a href="/About" style={{textDecoration:"none" , color:"#aba3a3"}}> About Us </a>
+        </p>
       </div>
-      
-      <div className="footer-content">
-        <h3>Help & Contact</h3>
-        <ul className="footer-links">
-          <li><a href="/help">Help Center</a></li>
-          <li><a href="/Contact Us">Contact Us</a></li>
-        </ul>
-        <ul className="social-links">
-          <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} size="lg" className="facebook-icon" /></a></li>
-          <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter} size="lg" className="twitter-icon" /></a></li>
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} size="lg" className="instagram-icon" /></a></li>
-          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} size="lg" className="linkedin-icon" /></a></li>
-          <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faYoutube} size="lg" className="youtube-icon" /></a></li>
-        </ul>
-      </div>
-      <div className="footer-content">
-        <h3>Premium</h3>
-        <p>Premium is not available </p>
-      </div>
-    </footer>
+        
+        
+        </div>
+        <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+          © 2023 Copyright :
+          <a className="text-white" href="#!" style={{textDecoration : "none"}}> JobScouts.com</a>
+        </div>
+      </footer>
+    // </div>
   );
 };
 

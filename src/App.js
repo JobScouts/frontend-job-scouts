@@ -5,15 +5,17 @@ import Footer from './components/Footer/Footer'
 import NavBarNotLog from './components/NavBarNotLog/NavBarNotLog';
 import UserProfile from './components/Profile/Profile';
 import SavedCard from './components/SavedCard/SavedCard';
+
+
 function App() {
   return (
-    <div className="App">
+    <div >
       <NavBarNotLog />
-      <Routes>
-        <Route path="/" element={<Home />} />
+       <Routes>
+       <Route path="/" element={<Home />} />
         <Route path='/About' element={<About />} />
         <Route path='/UserProfile' element={<UserProfile/>}/>
-        <Route path='/' element={<SavedCard/>}/>
+        <Route path='/SavedJob' element={<SavedCard/>}/> 
       </Routes>
       <Footer/>
     </div>

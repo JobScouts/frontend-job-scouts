@@ -1,17 +1,23 @@
-.about-jobscouts {
+section.about-jobscouts {
   justify-content: center;
-  width: 75%;
+  width: 100%;
   background-color: rgb(255, 255, 255);
+  padding: 40px 150px;
 }
 
 .about-jobscouts h1 {
-  font-family: Serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-align: center;
-  color: #0e432a;
+  color: #006c67;
+}
+
+.about-jobscouts h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #006c67;
 }
 
 .about-jobscouts p{
-  font: Sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
   text-align-last: auto;
   text-align:left;
   font-size: medium;
@@ -19,6 +25,7 @@
   padding: auto;;
   margin: auto;
   line-height: 2;
+  font-style: oblique;
 }
 
 .about-jobscouts button{
@@ -30,25 +37,27 @@
 
 .title-team{
   text-align: center;
-  font-family:Serif ;
   font-size:large;
   gap:auto;
   color: #0e432a;
+  
 }
+
 
 .title-team h1{
   font-size: 400%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.card-container {
+div.card-container-about {
   
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  gap: 10px !important;
+  gap: 90px !important;
   padding-bottom: 5%;
   justify-self: unset;
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  padding: 10px 40px;
   
 }
 
@@ -59,15 +68,14 @@
 
 }
 
-.card {
+.AboutcardImage{
   width: calc(20% - 20px);
   max-width: 300px;
-  margin: 5px;
+  margin: 500px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-
 }
 
 .card:hover {
