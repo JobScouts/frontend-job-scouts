@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Oops from "../Assest/Oops.avif";
 import { Link } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
+import companyImage from "../Assest/company.jpg"
 
 const SavedCard = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -19,6 +20,7 @@ const SavedCard = () => {
     if (us) {
       handleSavedJobs();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [us]);
 
   async function handleSavedJobs() {
@@ -93,7 +95,7 @@ const SavedCard = () => {
   {/* <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> */}
   <article class="postcard light blue">
     {/* <a class="postcard__img_link" href="#"> */}
-      <img class="postcard__img" src={job.employer_logo} alt="Company_Image" />
+      <img class="postcard__img" src={job.employer_logo || companyImage} alt="Company_Image" />
     {/* </a> */}
     <div class="postcard__text t-dark">
       <h1 class="postcard__title blue">{job.job_title}</h1>

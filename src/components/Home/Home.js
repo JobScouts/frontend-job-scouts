@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import search from "../Assest/search.jpg";
 import { useState } from "react";
 import CustomCard from "../CustomCard/CustomCard";
-
 import "react-spinner-animated/dist/index.css";
 import Update from "../updte/UpdateComponent";
-
 import "./Home.css";
 
 function Home() {
@@ -42,6 +39,7 @@ function Home() {
   }
   useEffect(() => {
     getِAllJobs();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (loading) {
     return (
@@ -62,13 +60,11 @@ function Home() {
     );
   }
 
-
   if (error) {
     return <div>Error: {error}</div>;
   }
   return (
     <div>
-
       <Container className="heroImage" style={{width:"100%"}}>
         <div className="left">
           <h1>Discover Your Perfect Job Opportunity :</h1>
@@ -100,17 +96,8 @@ function Home() {
             </Col>
           </Row>
         </div>
-        {/* <div className="right">
-          <Col xs={12} md={6} className="d-flex justify-content-end">
-            <img src={search} alt="Search Icon" className="search-icon" />
-          </Col>
-        </div> */}
-
-
       </Container>
       {showCard && <CustomCard data={data} />}
-
-
       <Update />
     </div>
   );

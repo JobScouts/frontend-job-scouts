@@ -21,6 +21,7 @@ const CustomCard = (props) => {
     if (isAuthenticated && user && user.sub) {
       fetchUserSavedJobs();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchUserSavedJobs]);
 
   const handleShowModal = (job) => {

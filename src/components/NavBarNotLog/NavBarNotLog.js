@@ -39,14 +39,6 @@ function NavBarNotLog() {
               </Nav.Item>
             )}
 
-            {/* {isAuthenticated && (
-              <Nav.Item>
-                <Nav.Link href="/UserProfile" className="nav-link">
-                  Profile
-                </Nav.Link>
-              </Nav.Item>
-            )} */}
-
             {!isAuthenticated ? (
               <Nav.Item>
                 <Nav.Link eventKey="link-1">
@@ -65,7 +57,6 @@ function NavBarNotLog() {
               </Nav.Item>
             )}
             {isAuthenticated && (user?.picture && <Nav.Link href="/UserProfile"><img src={user.picture}  alt={user.name} className='profileNavImg'/> </Nav.Link>)}
-
           </Nav>
         </Container>
       </Navbar>
