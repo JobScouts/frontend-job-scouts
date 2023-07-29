@@ -1,12 +1,9 @@
-import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import Company from "../Assest/company.jpg";
 import "./Details.css";
 
 const Details = ({ job, handleCloseModal }) => {
-  const [show, setShow] = useState(false);
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) : text;
   };

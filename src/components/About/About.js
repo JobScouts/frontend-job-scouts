@@ -1,19 +1,13 @@
 import React from 'react';
 import './About.css';
 import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
 import Aws from '../Assest/aws.JPG';
 import Mhamd from '../Assest/mhamad.jpg';
 import Farah from '../Assest/fara.jpg'
 import MhmdS from '../Assest/mhmds.jpg'
 import saif from '../Assest/saif.jpeg'
-import { useAuth0 } from '@auth0/auth0-react';
-
-
 
 const About = () => {
-  const { loginWithRedirect } = useAuth0();
-
   return (
     <div className='about'>
       <br></br>
@@ -32,21 +26,11 @@ const About = () => {
         <p>Join JobScouts today and take the next step towards a fulfilling and rewarding career.
           Let us be your trusted companion in the pursuit of your professional goals. Happy job hunting!
         </p>
-        <Button variant="success" className="success" onClick={() => { loginWithRedirect() }}>
-          LogIn
-        </Button>
       </section>
-
       <div className='title-team'>
-
         <h1>Our Team</h1>
-
-
-
         <div className="card-container-about">
-            
             {/* 1 */}
-
           <Card className="AboutcardImage">
             <Card.Img variant="top" src={MhmdS} className='imgc' />
             <Card.Body>
