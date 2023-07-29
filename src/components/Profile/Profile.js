@@ -7,7 +7,7 @@ const UserProfile = () => {
 
   return (
     
-    <div className="container mt-4">
+    <div className="container mt-4" style={{backgroundColor:"white"}}>
       <div class="page-content page-container" id="page-content" style={{width:"100%"}}>
         <div class="padding">
           <div class="row container d-flex justify-content-center">

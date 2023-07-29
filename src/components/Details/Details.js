@@ -33,7 +33,7 @@ const Details = ({ job, handleCloseModal }) => {
               <hr className="centeredHr" />
             </div>
             <p> {truncatedJobDescription === "" ? "Description Not Available ! ": truncatedJobDescription} </p>
-            <a href={job.employer_website} className="ModaleLinke">Our WebSite <i class="fa-solid fa-arrow-right"></i></a>
+            <a href={job.employer_website} className="ModaleLinke" target="_blank" rel="noreferrer">Our WebSite <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </Modal.Body>
         <Modal.Footer>
