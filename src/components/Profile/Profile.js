@@ -8,7 +8,7 @@ const UserProfile = () => {
   return (
     
     <div className="container mt-4">
-      <div class="page-content page-container" id="page-content">
+      <div class="page-content page-container" id="page-content" style={{width:"100%"}}>
         <div class="padding">
           <div class="row container d-flex justify-content-center">
             <div class="col-xl-6 col-md-12" style={{ width: "80%" }}>
@@ -22,7 +22,7 @@ const UserProfile = () => {
                           class="img-radius" />
                       </div>
                       <h6 class="f-w-600">{user?.name}</h6>
-                      <p>Full Stack ...</p>
+                      <p style={{color:"white"}}>Full Stack ...</p>
                       <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                     </div>
                   </div>
