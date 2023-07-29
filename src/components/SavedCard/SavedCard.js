@@ -20,6 +20,7 @@ const SavedCard = () => {
     if (us) {
       handleSavedJobs();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [us]);
 
   async function handleSavedJobs() {

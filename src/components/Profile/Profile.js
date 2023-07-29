@@ -6,8 +6,7 @@ const UserProfile = () => {
   const { user } = useAuth0();
 
   return (
-    
-    <div className="container mt-4" style={{backgroundColor:"white"}}>
+    <div className="container mt-4">
       <div class="page-content page-container" id="page-content" style={{width:"100%"}}>
         <div class="padding">
           <div class="row container d-flex justify-content-center">
@@ -51,8 +50,11 @@ const UserProfile = () => {
                         </div>
                       </div>
                       <ul class="social-link list-unstyled m-t-40 m-b-10">
+                        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
                         <li><a href="www.facebook.com" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
                         <li><a href="www.twitter.com" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
                         <li><a href="www.instagram.com" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
                       </ul>
                     </div>
