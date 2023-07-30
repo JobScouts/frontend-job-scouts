@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(118, 204, 165, 0.232)
+  background-color: rgba(69,90,100,0.08)
 }
 
 .padding {
@@ -49,6 +49,7 @@ body {
 
 .img-radius {
   border-radius: 100px;
+  width: 35%;
 }
 
 
@@ -133,5 +134,3 @@ p {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-
-
