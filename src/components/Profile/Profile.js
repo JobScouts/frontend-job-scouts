@@ -6,7 +6,7 @@ const UserProfile = () => {
   const { user } = useAuth0();
 
   return (
-    <div style={{backgroundColor:'rgba(69,90,100,0.08)', margin:'0px'}}>
+    <div style={{backgroundColor:'rgba(69,90,100,0.044)', margin:'0px'}}>
     <div className="container mt-4" >
       <div class="page-content page-container" id="page-content" style={{width:"100%"}}>
         <div class="padding">
