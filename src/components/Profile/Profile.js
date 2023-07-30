@@ -6,7 +6,8 @@ const UserProfile = () => {
   const { user } = useAuth0();
 
   return (
-    <div className="container mt-4">
+    <div style={{backgroundColor:'rgba(69,90,100,0.08)', margin:'0px'}}>
+    <div className="container mt-4" >
       <div class="page-content page-container" id="page-content" style={{width:"100%"}}>
         <div class="padding">
           <div class="row container d-flex justify-content-center">
@@ -65,6 +66,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

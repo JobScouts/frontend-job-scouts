@@ -114,7 +114,7 @@ const CustomCard = (props) => {
 
 
   return (
-    <div>
+    <div >
       {alertMessage && (
         <div className="fixed-alert">
           <Alert variant={alertVariant} onClose={() => setAlertMessage(null)} dismissible>

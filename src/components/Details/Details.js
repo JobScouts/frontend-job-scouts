@@ -17,9 +17,9 @@ const Details = ({ job, handleCloseModal }) => {
   return (
     <div>
         <Modal show={true} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+        {/* <Modal.Header closeButton>
           <Modal.Title className="ModalTitle">{job.employer_name}</Modal.Title>
-        </Modal.Header>
+        </Modal.Header> */}
         <Modal.Body className="ModalBody">
           <div className="leftModal">
             <img src={job.employer_logo === "" ? Company : job.employer_logo} alt={job.employer_name} className="ModalImage" />
